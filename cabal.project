@@ -1,5 +1,2 @@
 packages:
-  */*.cabal
-
-package set
-  optimization: True
+  unpacked-containers.cabal

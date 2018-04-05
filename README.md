@@ -1,10 +1,11 @@
 unpacked-containers
 ==
 
-This is a related set of packages that provide unpacked versions of `containers` using backpack
+This package supplies a simple unpacked version of Data.Set and Data.Map using backpack.
 
-This can remove a level of indirection on the heap, and remove a ton of code size inflation caused by the excessive use of 
-`INLINEABLE` that was necessary before.
+This can remove a level of indirection on the heap and unpack your keys directly into nodes of your sets and maps.
+
+See `unpacked-set-example` for a tiny example of usage.
 
 Contact Information
 -------------------
