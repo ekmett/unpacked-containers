@@ -44,7 +44,10 @@ library
   ghc-options: -Wall -O2
   hs-source-dirs: src
   signatures: Key
-  exposed-modules: Map.Internal
+  exposed-modules:
+    Map.Internal
+    Map.Internal.Debug
+    Map.Lazy
   build-depends:
     base >= 4.10 && < 5,
     data-default-class ^>= 0.1,
