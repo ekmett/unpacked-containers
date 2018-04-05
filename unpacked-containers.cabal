@@ -29,9 +29,12 @@ library
   hs-source-dirs: src
   signatures: Key
   exposed-modules:
+    Map
     Map.Internal
     Map.Internal.Debug
     Map.Lazy
+    Map.Merge.Lazy
+    Map.Merge.Strict
     Map.Strict
     Map.Strict.Internal
     Set
