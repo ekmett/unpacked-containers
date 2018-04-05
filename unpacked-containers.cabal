@@ -23,15 +23,11 @@ source-repository head
   type: git
   location: git://github.com/ekmett/unpacked-containers.git
 
--- used ONLY to produce haddocks
-flag haddock
-  default: False
-  manual: True
-
 library
   default-language: Haskell2010
   ghc-options: -Wall -O2
   hs-source-dirs: src
+  signatures: Key
   exposed-modules:
     Map.Internal
     Map.Internal.Debug
@@ -42,50 +38,29 @@ library
   build-depends:
     base >= 4.10 && < 5,
     data-default-class ^>= 0.1,
-    deepseq ^>= 1.4
-
-  -- haddock doesn't understand multiple libraries, we we'll flatten the 'utils' library into this one and give a fake module in place of the signature.
-  if !flag(haddock)
-    hs-source-dirs: sig
-    signatures: Key
-    build-depends: utils
-  else 
-    build-depends: ghc-prim
-    hs-source-dirs: utils fake
-    include-dirs: include
-
-    other-modules:
-      Internal.BitUtil
-      Internal.BitQueue
-      Internal.StrictPair 
-      Internal.State
-      Internal.StrictFold
-      Internal.StrictMaybe
-      Internal.PtrEquality 
+    deepseq ^>= 1.4,
+    utils
 
 -- separate internal library to avoid recompiling these all the time
 library utils
   default-language: Haskell2010
-  if flag(haddock)
-    buildable: False
-  else
-    hs-source-dirs: utils
-    include-dirs: include
-    ghc-options: -Wall -O2
+  hs-source-dirs: utils
+  include-dirs: include
+  ghc-options: -Wall -O2
 
-    build-depends:
-      base >= 4.10 && < 5,
-      deepseq >= 1.2 && < 1.5,
-      ghc-prim
+  build-depends:
+    base >= 4.10 && < 5,
+    deepseq >= 1.2 && < 1.5,
+    ghc-prim
 
-    exposed-modules:
-      Internal.BitUtil
-      Internal.BitQueue
-      Internal.StrictPair 
-      Internal.State
-      Internal.StrictFold
-      Internal.StrictMaybe
-      Internal.PtrEquality 
+  exposed-modules:
+    Internal.BitUtil
+    Internal.BitQueue
+    Internal.StrictPair
+    Internal.State
+    Internal.StrictFold
+    Internal.StrictMaybe
+    Internal.PtrEquality
 
 library example
   default-language: Haskell2010
@@ -96,8 +71,5 @@ library example
 executable unpacked-set-example
   default-language: Haskell2010
   main-is: example/Main.hs
-  if flag(haddock)
-    buildable: False
-  else
-    build-depends: base, unpacked-containers, example
-    mixins: unpacked-containers (Set as Int.Set) requires (Key as Int)
+  build-depends: base, unpacked-containers, example
+  mixins: unpacked-containers (Set as Int.Set) requires (Key as Int)

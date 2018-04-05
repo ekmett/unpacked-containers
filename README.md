@@ -1,7 +1,7 @@
 unpacked-containers
 ==
 
-This package supplies a simple unpacked version of Data.Set and Data.Map using backpack.
+This package supplies a simple unpacked version of `Data.Set` and `Data.Map` using backpack.
 
 This can remove a level of indirection on the heap and unpack your keys directly into nodes of your sets and maps.
 
@@ -10,15 +10,11 @@ See `unpacked-set-example` for a tiny example of usage.
 Documentation
 ==
 
-To build haddocks for this project you need to configure with
+To build haddocks for this project you need to run
 
 ```
-cabal configure -fhaddock
+$ cabal new-haddock
 ```
-
-and then you can `cabal new-haddock` or `cabal haddock` as usual.
-
-This will produce viable documentation, but in that form the library is broken.
 
 Contact Information
 -------------------
