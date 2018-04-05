@@ -32,6 +32,8 @@ library
     Map.Internal
     Map.Internal.Debug
     Map.Lazy
+    Map.Strict
+    Map.Strict.Internal
     Set
     Set.Internal
 
