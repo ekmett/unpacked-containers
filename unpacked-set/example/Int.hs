@@ -1,3 +1,3 @@
 module Int where
 
-type Elem = Int
+type Key = Int
