@@ -1,0 +1,5 @@
+packages:
+  */*.cabal
+
+package set
+  optimization: True
