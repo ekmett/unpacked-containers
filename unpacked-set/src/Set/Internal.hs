@@ -57,7 +57,7 @@
 -- unfolding of a function -- that is why all public functions are marked
 -- inlinable (that exposes the unfolding).
 --
--- This isn't required here, because we get to know the Ord Elem dictionary
+-- This isn't required here, because we get to know the Ord Key dictionary
 
 -- [Note: Using inline]
 -- ~~~~~~~~~~~~~~~~~~~~
@@ -208,7 +208,7 @@ import qualified GHC.Exts as GHCExts
 import Prelude hiding (filter,foldMap,foldl,foldr,null,map,take,drop,splitAt)
 import Text.Read
 
-import Elem
+import Key
 
 -- | The same as a regular Haskell pair, but
 --
@@ -244,7 +244,7 @@ infixl 9 \\ --
 -- | A set of values @a@.
 
 -- See Note: Order of constructors
-data Set = Bin {-# UNPACK #-} !Size {-# UNPACK #-} !Elem !Set !Set | Tip
+data Set = Bin {-# UNPACK #-} !Size {-# UNPACK #-} !Key !Set !Set | Tip
 
 instance Default Set where
   def = Tip
@@ -260,14 +260,14 @@ instance Semigroup Set where
   (<>) = union
   stimes  = stimesIdempotentMonoid
 
-foldMap :: Monoid m => (Elem -> m) -> Set -> m
+foldMap :: Monoid m => (Key -> m) -> Set -> m
 foldMap f t = go t where
   go Tip = mempty
   go (Bin 1 k _ _) = f k
   go (Bin _ k l r) = go l `mappend` (f k `mappend` go r)
 {-# inline foldMap #-}
 
-instance Data Elem => Data Set where
+instance Data Key => Data Set where
   gfoldl f z set = z fromList `f` (toList set)
   toConstr _     = fromListConstr
   gunfold k z c  = case constrIndex c of
@@ -298,7 +298,7 @@ size (Bin sz _ _ _) = sz
 {-# inline size #-}
 
 -- | /O(log n)/. Is the element in the set?
-member :: Elem -> Set -> Bool
+member :: Key -> Set -> Bool
 member !_ Tip = False
 member x (Bin _ y l r) = case compare x y of
   LT -> member x l
@@ -306,14 +306,14 @@ member x (Bin _ y l r) = case compare x y of
   EQ -> True
 
 -- | /O(log n)/. Is the element not in the set?
-notMember :: Elem -> Set -> Bool
+notMember :: Key -> Set -> Bool
 notMember a t = not $ member a t
 
 -- | /O(log n)/. Find largest element smaller than the given one.
 --
 -- > lookupLT 3 (fromList [3, 5]) == Nothing
 -- > lookupLT 5 (fromList [3, 5]) == Just 3
-lookupLT :: Elem -> Set -> Maybe Elem
+lookupLT :: Key -> Set -> Maybe Key
 lookupLT = goNothing where
   goNothing !_ Tip = Nothing
   goNothing x (Bin _ y l r)
@@ -328,7 +328,7 @@ lookupLT = goNothing where
 --
 -- > lookupGT 4 (fromList [3, 5]) == Just 5
 -- > lookupGT 5 (fromList [3, 5]) == Nothing
-lookupGT :: Elem -> Set -> Maybe Elem
+lookupGT :: Key -> Set -> Maybe Key
 lookupGT = goNothing where
   goNothing !_ Tip = Nothing
   goNothing x (Bin _ y l r)
@@ -345,7 +345,7 @@ lookupGT = goNothing where
 -- > lookupLE 2 (fromList [3, 5]) == Nothing
 -- > lookupLE 4 (fromList [3, 5]) == Just 3
 -- > lookupLE 5 (fromList [3, 5]) == Just 5
-lookupLE :: Elem -> Set -> Maybe Elem
+lookupLE :: Key -> Set -> Maybe Key
 lookupLE = goNothing where
   goNothing !_ Tip = Nothing
   goNothing x (Bin _ y l r) = case compare x y of
@@ -364,7 +364,7 @@ lookupLE = goNothing where
 -- > lookupGE 3 (fromList [3, 5]) == Just 3
 -- > lookupGE 4 (fromList [3, 5]) == Just 5
 -- > lookupGE 6 (fromList [3, 5]) == Nothing
-lookupGE :: Elem -> Set -> Maybe Elem
+lookupGE :: Key -> Set -> Maybe Key
 lookupGE = goNothing where
   goNothing !_ Tip = Nothing
   goNothing x (Bin _ y l r) = case compare x y of
@@ -387,7 +387,7 @@ empty = Tip
 {-# inline empty #-}
 
 -- | /O(1)/. Create a singleton set.
-singleton :: Elem -> Set
+singleton :: Key -> Set
 singleton x = Bin 1 x Tip Tip
 {-# inline singleton #-}
 
@@ -400,9 +400,9 @@ singleton x = Bin 1 x Tip Tip
 
 -- See Note: Type of local 'go' function
 -- See Note: Avoiding worker/wrapper (in Data.Map.Internal)
-insert :: Elem -> Set -> Set
+insert :: Key -> Set -> Set
 insert x0 = go x0 x0 where
-  go :: Elem -> Elem -> Set -> Set
+  go :: Key -> Key -> Set -> Set
   go orig !_ Tip = singleton (lazy orig)
   go orig !x t@(Bin sz y l r) = case compare x y of
     LT | l' `ptrEq` l -> t
@@ -419,9 +419,9 @@ insert x0 = go x0 x0 where
 
 -- See Note: Type of local 'go' function
 -- See Note: Avoiding worker/wrapper (in Data.Map.Internal)
-insertR :: Elem -> Set -> Set
+insertR :: Key -> Set -> Set
 insertR x0 = go x0 x0 where
-  go :: Elem -> Elem -> Set -> Set
+  go :: Key -> Key -> Set -> Set
   go orig !_ Tip = singleton (lazy orig)
   go orig !x t@(Bin _ y l r) = case compare x y of
     LT | l' `ptrEq` l -> t
@@ -435,9 +435,9 @@ insertR x0 = go x0 x0 where
 -- | /O(log n)/. Delete an element from a set.
 
 -- See Note: Type of local 'go' function
-delete :: Elem -> Set -> Set
+delete :: Key -> Set -> Set
 delete = go where
-  go :: Elem -> Set -> Set
+  go :: Key -> Set -> Set
   go !_ Tip = Tip
   go x t@(Bin _ y l r) = case compare x y of
     LT | l' `ptrEq` l -> t
@@ -474,7 +474,7 @@ isSubsetOfX (Bin _ x l r) t = found && isSubsetOfX l lt && isSubsetOfX r gt wher
 -- and lookupMax. Otherwise, GHC doesn't seem to do it, which is
 -- unfortunate if, for example, someone uses findMin or findMax.
 
-lookupMinSure :: Elem -> Set -> Elem
+lookupMinSure :: Key -> Set -> Key
 lookupMinSure x Tip = x
 lookupMinSure _ (Bin _ x l _) = lookupMinSure x l
 
@@ -482,17 +482,17 @@ lookupMinSure _ (Bin _ x l _) = lookupMinSure x l
 --
 -- @since 0.5.9
 
-lookupMin :: Set -> Maybe Elem
+lookupMin :: Set -> Maybe Key
 lookupMin Tip = Nothing
 lookupMin (Bin _ x l _) = Just $! lookupMinSure x l
 
 -- | /O(log n)/. The minimal element of a set.
-findMin :: Set -> Elem
+findMin :: Set -> Key
 findMin t
   | Just r <- lookupMin t = r
   | otherwise = error "Set.findMin: empty set has no minimal element"
 
-lookupMaxSure :: Elem -> Set -> Elem
+lookupMaxSure :: Key -> Set -> Key
 lookupMaxSure x Tip = x
 lookupMaxSure _ (Bin _ x _ r) = lookupMaxSure x r
 
@@ -500,12 +500,12 @@ lookupMaxSure _ (Bin _ x _ r) = lookupMaxSure x r
 --
 -- @since 0.5.9
 
-lookupMax :: Set -> Maybe Elem
+lookupMax :: Set -> Maybe Key
 lookupMax Tip = Nothing
 lookupMax (Bin _ x _ r) = Just $! lookupMaxSure x r
 
 -- | /O(log n)/. The maximal element of a set.
-findMax :: Set -> Elem
+findMax :: Set -> Key
 findMax t
   | Just r <- lookupMax t = r
   | otherwise = error "Set.findMax: empty set has no maximal element"
@@ -561,7 +561,7 @@ difference t1 (Bin _ x l2 r2) = case split x t1 of
   Intersection
 --------------------------------------------------------------------}
 -- | /O(m*log(n\/m + 1)), m <= n/. The intersection of two sets.
--- Elements of the result come from the first set, so for example
+-- Keyents of the result come from the first set, so for example
 --
 -- > import qualified Data.Set as S
 -- > data AB = A | B deriving Show
@@ -588,7 +588,7 @@ intersection t1@(Bin _ x l1 r1) t2
   Filter and partition
 --------------------------------------------------------------------}
 -- | /O(n)/. Filter all elements that satisfy the predicate.
-filter :: (Elem -> Bool) -> Set -> Set
+filter :: (Key -> Bool) -> Set -> Set
 filter _ Tip = Tip
 filter p t@(Bin _ x l r)
   | p x = if l `ptrEq` l' && r `ptrEq` r'
@@ -602,7 +602,7 @@ filter p t@(Bin _ x l r)
 -- | /O(n)/. Partition the set into two sets, one with all elements that satisfy
 -- the predicate and one with all elements that don't satisfy the predicate.
 -- See also 'split'.
-partition :: (Elem -> Bool) -> Set -> (Set,Set)
+partition :: (Key -> Bool) -> Set -> (Set,Set)
 partition p0 t0 = toPair $ go p0 t0 where
   go _ Tip = (Tip :*: Tip)
   go p t@(Bin _ x l r) = case (go p l, go p r) of
@@ -625,7 +625,7 @@ partition p0 t0 = toPair $ go p0 t0 where
 -- It's worth noting that the size of the result may be smaller if,
 -- for some @(x,y)@, @x \/= y && f x == f y@
 
-map :: (Elem -> Elem) -> Set -> Set
+map :: (Key -> Key) -> Set -> Set
 map f = fromList . List.map f . toList
 
 -- | /O(n)/. The
@@ -638,7 +638,7 @@ map f = fromList . List.map f . toList
 -- >                     ==> mapMonotonic f s == map f s
 -- >     where ls = toList s
 
-mapMonotonic :: (Elem -> Elem) -> Set -> Set
+mapMonotonic :: (Key -> Key) -> Set -> Set
 mapMonotonic _ Tip = Tip
 mapMonotonic f (Bin sz x l r) = Bin sz (f x) (mapMonotonic f l) (mapMonotonic f r)
 
@@ -652,7 +652,7 @@ mapMonotonic f (Bin sz x l r) = Bin sz (f x) (mapMonotonic f l) (mapMonotonic f 
 -- For example,
 --
 -- > toAscList set = foldr (:) [] set
-foldr :: (Elem -> b -> b) -> b -> Set -> b
+foldr :: (Key -> b -> b) -> b -> Set -> b
 foldr f z = go z where
   go z' Tip = z'
   go z' (Bin _ x l r) = go (f x (go z' r)) l
@@ -661,7 +661,7 @@ foldr f z = go z where
 -- | /O(n)/. A strict version of 'foldr'. Each application of the operator is
 -- evaluated before using the result in the next application. This
 -- function is strict in the starting value.
-foldr' :: (Elem -> b -> b) -> b -> Set -> b
+foldr' :: (Key -> b -> b) -> b -> Set -> b
 foldr' f z = go z where
   go !z' Tip = z'
   go z' (Bin _ x l r) = go (f x (go z' r)) l
@@ -673,7 +673,7 @@ foldr' f z = go z where
 -- For example,
 --
 -- > toDescList set = foldl (flip (:)) [] set
-foldl :: (a -> Elem -> a) -> a -> Set -> a
+foldl :: (a -> Key -> a) -> a -> Set -> a
 foldl f z = go z where
   go z' Tip = z'
   go z' (Bin _ x l r) = go (f (go z' l) x) r
@@ -682,7 +682,7 @@ foldl f z = go z where
 -- | /O(n)/. A strict version of 'foldl'. Each application of the operator is
 -- evaluated before using the result in the next application. This
 -- function is strict in the starting value.
-foldl' :: (a -> Elem -> a) -> a -> Set -> a
+foldl' :: (a -> Key -> a) -> a -> Set -> a
 foldl' f z = go z where
   go !z' Tip           = z'
   go z' (Bin _ x l r) = go (f (go z' l) x) r
@@ -693,38 +693,38 @@ foldl' f z = go z where
 --------------------------------------------------------------------}
 -- | /O(n)/. An alias of 'toAscList'. The elements of a set in ascending order.
 -- Subject to list fusion.
-elems :: Set -> [Elem]
+elems :: Set -> [Key]
 elems = toAscList
 
 {--------------------------------------------------------------------
   Lists
 --------------------------------------------------------------------}
 instance GHCExts.IsList Set where
-  type Item Set = Elem
+  type Item Set = Key
   fromList = fromList
   toList   = toList
 
 -- | /O(n)/. Convert the set to a list of elements. Subject to list fusion.
-toList :: Set -> [Elem]
+toList :: Set -> [Key]
 toList = toAscList
 
 -- | /O(n)/. Convert the set to an ascending list of elements. Subject to list fusion.
-toAscList :: Set -> [Elem]
+toAscList :: Set -> [Key]
 toAscList = foldr (:) []
 
 -- | /O(n)/. Convert the set to a descending list of elements. Subject to list
 -- fusion.
-toDescList :: Set -> [Elem]
+toDescList :: Set -> [Key]
 toDescList = foldl (flip (:)) []
 
 -- List fusion for the list generating functions.
 -- The foldrFB and foldlFB are foldr and foldl equivalents, used for list fusion.
 -- They are important to convert unfused to{Asc,Desc}List back, see mapFB in prelude.
-foldrFB :: (Elem -> b -> b) -> b -> Set -> b
+foldrFB :: (Key -> b -> b) -> b -> Set -> b
 foldrFB = foldr
 {-# inline[0] foldrFB #-}
 
-foldlFB :: (a -> Elem -> a) -> a -> Set -> a
+foldlFB :: (a -> Key -> a) -> a -> Set -> a
 foldlFB = foldl
 {-# inline[0] foldlFB #-}
 
@@ -752,7 +752,7 @@ foldlFB = foldl
 
 -- For some reason, when 'singleton' is used in fromList or in
 -- create, it is not inlined, so we inline it manually.
-fromList :: [Elem] -> Set
+fromList :: [Key] -> Set
 fromList [] = Tip
 fromList [x] = Bin 1 x Tip Tip
 fromList (x0 : xs0)
@@ -796,12 +796,12 @@ fromList (x0 : xs0)
 --------------------------------------------------------------------}
 -- | /O(n)/. Build a set from an ascending list in linear time.
 -- /The precondition (input list is ascending) is not checked./
-fromAscList :: [Elem] -> Set
+fromAscList :: [Key] -> Set
 fromAscList xs = fromDistinctAscList (combineEq xs)
 
 -- | /O(n)/. Build a set from a descending list in linear time.
 -- /The precondition (input list is descending) is not checked./
-fromDescList :: [Elem] -> Set
+fromDescList :: [Key] -> Set
 fromDescList xs = fromDistinctDescList (combineEq xs)
 
 -- [combineEq xs] combines equal elements with [const] in an ordered list [xs]
@@ -809,7 +809,7 @@ fromDescList xs = fromDistinctDescList (combineEq xs)
 -- TODO: combineEq allocates an intermediate list. It *should* be better to
 -- make fromAscListBy and fromDescListBy the fundamental operations, and to
 -- implement the rest using those.
-combineEq :: [Elem] -> [Elem]
+combineEq :: [Key] -> [Key]
 combineEq [] = []
 combineEq (x : xs) = combineEq' x xs
   where
@@ -823,7 +823,7 @@ combineEq (x : xs) = combineEq' x xs
 
 -- For some reason, when 'singleton' is used in fromDistinctAscList or in
 -- create, it is not inlined, so we inline it manually.
-fromDistinctAscList :: [Elem] -> Set
+fromDistinctAscList :: [Key] -> Set
 fromDistinctAscList [] = Tip
 fromDistinctAscList (x0 : xs0) = go (1::Int) (Bin 1 x0 Tip Tip) xs0
   where
@@ -845,7 +845,7 @@ fromDistinctAscList (x0 : xs0) = go (1::Int) (Bin 1 x0 Tip Tip) xs0
 
 -- For some reason, when 'singleton' is used in fromDistinctDescList or in
 -- create, it is not inlined, so we inline it manually.
-fromDistinctDescList :: [Elem] -> Set
+fromDistinctDescList :: [Key] -> Set
 fromDistinctDescList [] = Tip
 fromDistinctDescList (x0 : xs0) = go (1::Int) (Bin 1 x0 Tip Tip) xs0
   where
@@ -880,14 +880,14 @@ instance Ord Set where
 {--------------------------------------------------------------------
   Show
 --------------------------------------------------------------------}
-instance Show Elem => Show Set where
+instance Show Key => Show Set where
   showsPrec p xs = showParen (p > 10) $
     showString "fromList " . shows (toList xs)
 
 {--------------------------------------------------------------------
   Read
 --------------------------------------------------------------------}
-instance Read Elem => Read Set where
+instance Read Key => Read Set where
   readPrec = parens $ prec 10 $ do
     Ident "fromList" <- lexP
     xs <- readPrec
@@ -899,7 +899,7 @@ instance Read Elem => Read Set where
   NFData
 --------------------------------------------------------------------}
 
-instance NFData Elem => NFData Set where
+instance NFData Key => NFData Set where
     rnf Tip           = ()
     rnf (Bin _ y l r) = rnf y `seq` rnf l `seq` rnf r
 
@@ -909,10 +909,10 @@ instance NFData Elem => NFData Set where
 -- | /O(log n)/. The expression (@'split' x set@) is a pair @(set1,set2)@
 -- where @set1@ comprises the elements of @set@ less than @x@ and @set2@
 -- comprises the elements of @set@ greater than @x@.
-split :: Elem -> Set -> (Set,Set)
+split :: Key -> Set -> (Set,Set)
 split x t = toPair $ splitS x t
 
-splitS :: Elem -> Set -> StrictPair Set Set
+splitS :: Key -> Set -> StrictPair Set Set
 splitS _ Tip = (Tip :*: Tip)
 splitS x (Bin _ y l r) = case compare x y of
   LT -> let (lt :*: gt) = splitS x l in (lt :*: link y gt r)
@@ -921,7 +921,7 @@ splitS x (Bin _ y l r) = case compare x y of
 
 -- | /O(log n)/. Performs a 'split' but also returns whether the pivot
 -- element was found in the original set.
-splitMember :: Elem -> Set -> (Set,Bool,Set)
+splitMember :: Key -> Set -> (Set,Bool,Set)
 splitMember _ Tip = (Tip, False, Tip)
 splitMember x (Bin _ y l r) = case compare x y of
    LT -> let (lt, found, gt) = splitMember x l
@@ -947,9 +947,9 @@ splitMember x (Bin _ y l r) = case compare x y of
 -- > findIndex 6 (fromList [5,3])    Error: element is not in the set
 
 -- See Note: Type of local 'go' function
-findIndex :: Elem -> Set -> Int
+findIndex :: Key -> Set -> Int
 findIndex = go 0 where
-  go :: Int -> Elem -> Set -> Int
+  go :: Int -> Key -> Set -> Int
   go !_ !_ Tip  = error "Set.findIndex: element is not in the set"
   go idx x (Bin _ kx l r) = case compare x kx of
     LT -> go idx x l
@@ -966,9 +966,9 @@ findIndex = go 0 where
 -- > isJust   (lookupIndex 6 (fromList [5,3])) == False
 
 -- See Note: Type of local 'go' function
-lookupIndex :: Elem -> Set -> Maybe Int
+lookupIndex :: Key -> Set -> Maybe Int
 lookupIndex = go 0 where
-  go :: Int -> Elem -> Set -> Maybe Int
+  go :: Int -> Key -> Set -> Maybe Int
   go !_ !_ Tip  = Nothing
   go idx x (Bin _ kx l r) = case compare x kx of
     LT -> go idx x l
@@ -983,7 +983,7 @@ lookupIndex = go 0 where
 -- > elemAt 1 (fromList [5,3]) == 5
 -- > elemAt 2 (fromList [5,3])    Error: index out of range
 
-elemAt :: Int -> Set -> Elem
+elemAt :: Int -> Set -> Key
 elemAt !_ Tip = error "Set.elemAt: index out of range"
 elemAt i (Bin _ x l r) = case compare i sizeL of
     LT -> elemAt i l
@@ -1074,7 +1074,7 @@ splitAt i0 m0
 -- takeWhileAntitone p = 'filter' p
 -- @
 
-takeWhileAntitone :: (Elem -> Bool) -> Set -> Set
+takeWhileAntitone :: (Key -> Bool) -> Set -> Set
 takeWhileAntitone _ Tip = Tip
 takeWhileAntitone p (Bin _ x l r)
   | p x = link x l (takeWhileAntitone p r)
@@ -1089,7 +1089,7 @@ takeWhileAntitone p (Bin _ x l r)
 -- dropWhileAntitone p = 'filter' (not . p)
 -- @
 
-dropWhileAntitone :: (Elem -> Bool) -> Set -> Set
+dropWhileAntitone :: (Key -> Bool) -> Set -> Set
 dropWhileAntitone _ Tip = Tip
 dropWhileAntitone p (Bin _ x l r)
   | p x = dropWhileAntitone p r
@@ -1109,7 +1109,7 @@ dropWhileAntitone p (Bin _ x l r)
 -- holding (where the predicate is seen to hold before the first element and to fail
 -- after the last element).
 
-spanAntitone :: (Elem -> Bool) -> Set -> (Set, Set)
+spanAntitone :: (Key -> Bool) -> Set -> (Set, Set)
 spanAntitone p0 m = toPair (go p0 m) where
   go _ Tip = Tip :*: Tip
   go p (Bin _ x l r)
@@ -1142,7 +1142,7 @@ spanAntitone p0 m = toPair (go p0 m) where
 {--------------------------------------------------------------------
   Link
 --------------------------------------------------------------------}
-link :: Elem -> Set -> Set -> Set
+link :: Key -> Set -> Set -> Set
 link x Tip r  = insertMin x r
 link x l Tip  = insertMax x l
 link x l@(Bin sizeL y ly ry) r@(Bin sizeR z lz rz)
@@ -1151,7 +1151,7 @@ link x l@(Bin sizeL y ly ry) r@(Bin sizeR z lz rz)
   | otherwise            = bin x l r
 
 -- insertMin and insertMax don't perform potentially expensive comparisons.
-insertMax,insertMin :: Elem -> Set -> Set
+insertMax,insertMin :: Key -> Set -> Set
 insertMax x t = case t of
   Tip -> singleton x
   Bin _ y l r -> balanceR y l (insertMax x r)
@@ -1186,7 +1186,7 @@ glue l@(Bin sl xl ll lr) r@(Bin sr xr rl rr)
 --
 -- > deleteFindMin set = (findMin set, deleteMin set)
 
-deleteFindMin :: Set -> (Elem, Set)
+deleteFindMin :: Set -> (Key, Set)
 deleteFindMin t
   | Just r <- minView t = r
   | otherwise = (error "Set.deleteFindMin: can not return the minimal element of an empty set", Tip)
@@ -1194,12 +1194,12 @@ deleteFindMin t
 -- | /O(log n)/. Delete and find the maximal element.
 --
 -- > deleteFindMax set = (findMax set, deleteMax set)
-deleteFindMax :: Set -> (Elem, Set)
+deleteFindMax :: Set -> (Key, Set)
 deleteFindMax t
   | Just r <- maxView t = r
   | otherwise = (error "Set.deleteFindMax: can not return the maximal element of an empty set", Tip)
 
-minViewSure :: Elem -> Set -> Set -> StrictPair Elem Set
+minViewSure :: Key -> Set -> Set -> StrictPair Key Set
 minViewSure = go where
   go x Tip r = x :*: r
   go x (Bin _ xl ll lr) r = case go xl ll lr of
@@ -1207,11 +1207,11 @@ minViewSure = go where
 
 -- | /O(log n)/. Retrieves the minimal key of the set, and the set
 -- stripped of that element, or 'Nothing' if passed an empty set.
-minView :: Set -> Maybe (Elem, Set)
+minView :: Set -> Maybe (Key, Set)
 minView Tip = Nothing
 minView (Bin _ x l r) = Just $! toPair $ minViewSure x l r
 
-maxViewSure :: Elem -> Set -> Set -> StrictPair Elem Set
+maxViewSure :: Key -> Set -> Set -> StrictPair Key Set
 maxViewSure = go where
   go x l Tip = x :*: l
   go x l (Bin _ xr rl rr) = case go xr rl rr of
@@ -1219,7 +1219,7 @@ maxViewSure = go where
 
 -- | /O(log n)/. Retrieves the maximal key of the set, and the set
 -- stripped of that element, or 'Nothing' if passed an empty set.
-maxView :: Set -> Maybe (Elem, Set)
+maxView :: Set -> Maybe (Key, Set)
 maxView Tip = Nothing
 maxView (Bin _ x l r) = Just $! toPair $ maxViewSure x l r
 
@@ -1300,7 +1300,7 @@ ratio = 2
 -- balanceL is called when left subtree might have been inserted to or when
 -- right subtree might have been deleted from.
 
-balanceL :: Elem -> Set -> Set -> Set
+balanceL :: Key -> Set -> Set -> Set
 balanceL x l r = case r of
   Tip -> case l of
     Tip -> Bin 1 x Tip Tip
@@ -1325,7 +1325,7 @@ balanceL x l r = case r of
 
 -- balanceR is called when right subtree might have been inserted to or when
 -- left subtree might have been deleted from.
-balanceR :: Elem -> Set -> Set -> Set
+balanceR :: Key -> Set -> Set -> Set
 balanceR x l r = case l of
   Tip -> case r of
     Tip -> Bin 1 x Tip Tip
@@ -1351,7 +1351,7 @@ balanceR x l r = case l of
 {--------------------------------------------------------------------
   The bin constructor maintains the size of the tree
 --------------------------------------------------------------------}
-bin :: Elem -> Set -> Set -> Set
+bin :: Key -> Set -> Set -> Set
 bin x l r
   = Bin (size l + size r + 1) x l r
 {-# inline bin #-}
@@ -1389,7 +1389,7 @@ splitRoot orig = case orig of
 --------------------------------------------------------------------}
 -- | /O(n)/. Show the tree that implements the set. The tree is shown
 -- in a compressed, hanging format.
-showTree :: Show Elem => Set -> String
+showTree :: Show Key => Set -> String
 showTree s = showTreeWith True False s
 
 
@@ -1428,12 +1428,12 @@ showTree s = showTreeWith True False s
 >    +--1
 
 -}
-showTreeWith :: Show Elem => Bool -> Bool -> Set -> String
+showTreeWith :: Show Key => Bool -> Bool -> Set -> String
 showTreeWith hang wide t
   | hang      = (showsTreeHang wide [] t) ""
   | otherwise = (showsTree wide [] [] t) ""
 
-showsTree :: Show Elem => Bool -> [String] -> [String] -> Set -> ShowS
+showsTree :: Show Key => Bool -> [String] -> [String] -> Set -> ShowS
 showsTree wide lbars rbars t = case t of
   Tip -> showsBars lbars . showString "|\n"
   Bin _ x Tip Tip -> showsBars lbars . shows x . showString "\n"
@@ -1444,7 +1444,7 @@ showsTree wide lbars rbars t = case t of
     showWide wide lbars .
     showsTree wide (withEmpty lbars) (withBar lbars) l
 
-showsTreeHang :: Show Elem => Bool -> [String] -> Set -> ShowS
+showsTreeHang :: Show Key => Bool -> [String] -> Set -> ShowS
 showsTreeHang wide bars t = case t of
   Tip -> showsBars bars . showString "|\n"
   Bin _ x Tip Tip -> showsBars bars . shows x . showString "\n"

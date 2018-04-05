@@ -1,0 +1,5 @@
+signature Key where
+
+data Key 
+instance Eq Key
+instance Ord Key
