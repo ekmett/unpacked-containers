@@ -8,7 +8,7 @@ http://github.com/haskell-perf/sets
 
 with this package added.
 
-The results show a 15-50% win for things that unpack
+The results show a 15-45% win for things that unpack
 and a statistically insignificant change for things that don't
 relative to Data.Set.
 
