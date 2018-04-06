@@ -27,7 +27,7 @@ module MyKey where
 type Key = ()
 ```
 
-You can put whatever you want in for Key as long as it is an instance of `Ord`.
+You can put whatever you want in for `Key` as long as it is an instance of `Ord`.
 
 Then in your cabal file you can set up your internal library as an extra named internal library (multiple library support was added in cabal 2).
 
