@@ -3,7 +3,7 @@ category:      Language
 version:       0
 license:       BSD2
 license-file:  LICENSE
-cabal-version: 2
+cabal-version: 2.0
 author:        Edward A. Kmett
 maintainer:    Edward A. Kmett <ekmett@gmail.com>
 stability:     experimental
