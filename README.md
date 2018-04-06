@@ -50,7 +50,7 @@ If you need several `Set`s or `Map`s you can use several `mixins:` clauses.
 
 If you need to expose the set type, remember you can use a `reexported-modules:` stanza.
 
-Now you work with `MyKey.Set` as a monomorphic set type specific to the type of Key you specified earlier.
+Now you work with `MyKey.Set` as a monomorphic set type specific to the type of `Key` you specified earlier.
 
 See the `executable unpacked-set-example` and `library example` sections in the `unpacked-containers.cabal` file for a minimal working example.
 
