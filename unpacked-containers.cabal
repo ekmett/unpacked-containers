@@ -11,7 +11,7 @@ homepage:      http://github.com/ekmett/unpacked-containers/
 bug-reports:   http://github.com/ekmett/unpacked-containers/issues
 copyright:     Copyright (C) 2017-2018 Edward A. Kmett
 build-type:    Simple
-synopsis:      Unpacked sets via backpack
+synopsis:      Unpacked containers via backpack
 description:   This backpack mixin package supplies unpacked sets and maps exploiting backpack's ability to unpack through signatures.
 extra-source-files:
   README.md
