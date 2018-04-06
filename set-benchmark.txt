@@ -1,0 +1,1174 @@
+benchmarking Insert Int (Randomized)/Data.Set:10
+time                 690.0 ns   (678.2 ns .. 702.5 ns)
+                     0.997 R²   (0.995 R² .. 0.998 R²)
+mean                 697.8 ns   (684.9 ns .. 714.6 ns)
+std dev              47.45 ns   (35.56 ns .. 63.77 ns)
+variance introduced by outliers: 79% (severely inflated)
+
+benchmarking Insert Int (Randomized)/Unpacked.Set:10
+time                 546.8 ns   (531.7 ns .. 560.7 ns)
+                     0.994 R²   (0.991 R² .. 0.996 R²)
+mean                 554.5 ns   (539.2 ns .. 574.5 ns)
+std dev              57.94 ns   (45.38 ns .. 77.67 ns)
+variance introduced by outliers: 90% (severely inflated)
+
+benchmarking Insert Int (Randomized)/Data.HashSet:10
+time                 663.0 ns   (641.2 ns .. 688.4 ns)
+                     0.993 R²   (0.989 R² .. 0.997 R²)
+mean                 648.4 ns   (635.0 ns .. 663.0 ns)
+std dev              50.00 ns   (41.10 ns .. 62.06 ns)
+variance introduced by outliers: 83% (severely inflated)
+
+benchmarking Insert Int (Randomized)/Data.IntSet:10
+time                 92.03 ns   (90.59 ns .. 93.45 ns)
+                     0.997 R²   (0.996 R² .. 0.998 R²)
+mean                 92.61 ns   (90.76 ns .. 94.86 ns)
+std dev              6.986 ns   (5.258 ns .. 10.92 ns)
+variance introduced by outliers: 85% (severely inflated)
+
+benchmarking Insert Int (Randomized)/Data.Set:100
+time                 14.63 μs   (14.32 μs .. 14.91 μs)
+                     0.995 R²   (0.992 R² .. 0.997 R²)
+mean                 14.65 μs   (14.26 μs .. 15.13 μs)
+std dev              1.407 μs   (1.076 μs .. 1.887 μs)
+variance introduced by outliers: 84% (severely inflated)
+
+benchmarking Insert Int (Randomized)/Unpacked.Set:100
+time                 12.62 μs   (12.43 μs .. 12.77 μs)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 12.16 μs   (11.89 μs .. 12.47 μs)
+std dev              912.0 ns   (698.8 ns .. 1.319 μs)
+variance introduced by outliers: 77% (severely inflated)
+
+benchmarking Insert Int (Randomized)/Data.HashSet:100
+time                 9.711 μs   (9.619 μs .. 9.814 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 9.729 μs   (9.621 μs .. 9.856 μs)
+std dev              381.3 ns   (308.4 ns .. 483.2 ns)
+variance introduced by outliers: 48% (moderately inflated)
+
+benchmarking Insert Int (Randomized)/Data.IntSet:100
+time                 1.332 μs   (1.314 μs .. 1.350 μs)
+                     0.998 R²   (0.998 R² .. 0.999 R²)
+mean                 1.329 μs   (1.311 μs .. 1.351 μs)
+std dev              65.82 ns   (51.62 ns .. 94.41 ns)
+variance introduced by outliers: 65% (severely inflated)
+
+benchmarking Insert Int (Randomized)/Data.Set:1000
+time                 278.4 μs   (273.5 μs .. 283.2 μs)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 275.8 μs   (273.1 μs .. 280.1 μs)
+std dev              11.56 μs   (8.888 μs .. 15.96 μs)
+variance introduced by outliers: 38% (moderately inflated)
+
+benchmarking Insert Int (Randomized)/Unpacked.Set:1000
+time                 216.6 μs   (214.9 μs .. 218.5 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 218.2 μs   (215.9 μs .. 221.0 μs)
+std dev              7.882 μs   (6.202 μs .. 10.05 μs)
+variance introduced by outliers: 32% (moderately inflated)
+
+benchmarking Insert Int (Randomized)/Data.HashSet:1000
+time                 142.7 μs   (141.0 μs .. 144.8 μs)
+                     0.999 R²   (0.997 R² .. 0.999 R²)
+mean                 143.7 μs   (142.3 μs .. 145.8 μs)
+std dev              6.025 μs   (4.204 μs .. 8.332 μs)
+variance introduced by outliers: 42% (moderately inflated)
+
+benchmarking Insert Int (Randomized)/Data.IntSet:1000
+time                 25.77 μs   (25.48 μs .. 26.03 μs)
+                     0.999 R²   (0.999 R² .. 0.999 R²)
+mean                 25.62 μs   (25.43 μs .. 25.90 μs)
+std dev              768.2 ns   (625.0 ns .. 1.078 μs)
+variance introduced by outliers: 32% (moderately inflated)
+
+benchmarking Insert Int (Randomized)/Data.Set:10000
+time                 4.781 ms   (4.692 ms .. 4.856 ms)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 4.785 ms   (4.745 ms .. 4.826 ms)
+std dev              127.8 μs   (103.6 μs .. 157.7 μs)
+variance introduced by outliers: 11% (moderately inflated)
+
+benchmarking Insert Int (Randomized)/Unpacked.Set:10000
+time                 3.716 ms   (3.644 ms .. 3.772 ms)
+                     0.997 R²   (0.995 R² .. 0.999 R²)
+mean                 3.692 ms   (3.652 ms .. 3.746 ms)
+std dev              150.7 μs   (113.5 μs .. 239.5 μs)
+variance introduced by outliers: 23% (moderately inflated)
+
+benchmarking Insert Int (Randomized)/Data.HashSet:10000
+time                 4.351 ms   (4.265 ms .. 4.440 ms)
+                     0.995 R²   (0.992 R² .. 0.998 R²)
+mean                 4.413 ms   (4.329 ms .. 4.591 ms)
+std dev              361.9 μs   (184.1 μs .. 601.9 μs)
+variance introduced by outliers: 52% (severely inflated)
+
+benchmarking Insert Int (Randomized)/Data.IntSet:10000
+time                 459.0 μs   (454.1 μs .. 465.3 μs)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 463.4 μs   (458.8 μs .. 470.2 μs)
+std dev              18.42 μs   (14.40 μs .. 27.23 μs)
+variance introduced by outliers: 33% (moderately inflated)
+
+benchmarking Intersection (Randomized)/Data.Set:10
+time                 999.4 ns   (987.1 ns .. 1.012 μs)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 995.6 ns   (984.1 ns .. 1.011 μs)
+std dev              45.91 ns   (36.39 ns .. 64.87 ns)
+variance introduced by outliers: 63% (severely inflated)
+
+benchmarking Intersection (Randomized)/Int.Set:10
+time                 549.2 ns   (543.9 ns .. 554.9 ns)
+                     0.999 R²   (0.999 R² .. 0.999 R²)
+mean                 550.2 ns   (544.3 ns .. 558.0 ns)
+std dev              22.33 ns   (18.86 ns .. 27.48 ns)
+variance introduced by outliers: 58% (severely inflated)
+
+benchmarking Intersection (Randomized)/Data.HashSet:10
+time                 313.6 ns   (309.2 ns .. 318.8 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 311.1 ns   (307.0 ns .. 315.9 ns)
+std dev              14.93 ns   (12.10 ns .. 18.68 ns)
+variance introduced by outliers: 67% (severely inflated)
+
+benchmarking Intersection (Randomized)/Data.IntSet:10
+time                 153.9 ns   (151.2 ns .. 156.6 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 152.8 ns   (150.7 ns .. 155.5 ns)
+std dev              8.124 ns   (6.293 ns .. 11.45 ns)
+variance introduced by outliers: 72% (severely inflated)
+
+benchmarking Intersection (Randomized)/Data.Set:100
+time                 11.48 μs   (11.31 μs .. 11.68 μs)
+                     0.997 R²   (0.994 R² .. 0.999 R²)
+mean                 11.63 μs   (11.42 μs .. 11.96 μs)
+std dev              897.7 ns   (615.3 ns .. 1.348 μs)
+variance introduced by outliers: 78% (severely inflated)
+
+benchmarking Intersection (Randomized)/Int.Set:100
+time                 6.741 μs   (6.667 μs .. 6.857 μs)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 6.728 μs   (6.645 μs .. 6.822 μs)
+std dev              296.5 ns   (247.6 ns .. 382.5 ns)
+variance introduced by outliers: 55% (severely inflated)
+
+benchmarking Intersection (Randomized)/Data.HashSet:100
+time                 3.250 μs   (3.215 μs .. 3.289 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 3.261 μs   (3.229 μs .. 3.302 μs)
+std dev              123.8 ns   (102.4 ns .. 162.5 ns)
+variance introduced by outliers: 50% (moderately inflated)
+
+benchmarking Intersection (Randomized)/Data.IntSet:100
+time                 1.059 μs   (1.046 μs .. 1.071 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 1.064 μs   (1.053 μs .. 1.076 μs)
+std dev              40.68 ns   (33.09 ns .. 49.87 ns)
+variance introduced by outliers: 53% (severely inflated)
+
+benchmarking Intersection (Randomized)/Data.Set:1000
+time                 155.3 μs   (153.6 μs .. 157.3 μs)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 156.2 μs   (154.0 μs .. 163.2 μs)
+std dev              11.50 μs   (5.267 μs .. 21.99 μs)
+variance introduced by outliers: 69% (severely inflated)
+
+benchmarking Intersection (Randomized)/Int.Set:1000
+time                 100.3 μs   (99.05 μs .. 101.8 μs)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 100.4 μs   (99.07 μs .. 102.0 μs)
+std dev              4.999 μs   (3.870 μs .. 7.190 μs)
+variance introduced by outliers: 51% (severely inflated)
+
+benchmarking Intersection (Randomized)/Data.HashSet:1000
+time                 46.63 μs   (46.13 μs .. 47.20 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 46.98 μs   (46.49 μs .. 47.66 μs)
+std dev              1.856 μs   (1.447 μs .. 2.418 μs)
+variance introduced by outliers: 43% (moderately inflated)
+
+benchmarking Intersection (Randomized)/Data.IntSet:1000
+time                 13.81 μs   (13.14 μs .. 14.74 μs)
+                     0.948 R²   (0.871 R² .. 0.994 R²)
+mean                 13.59 μs   (12.95 μs .. 16.17 μs)
+std dev              3.442 μs   (1.076 μs .. 7.582 μs)
+variance introduced by outliers: 98% (severely inflated)
+
+benchmarking Intersection (Randomized)/Data.Set:10000
+time                 2.204 ms   (2.034 ms .. 2.313 ms)
+                     0.946 R²   (0.883 R² .. 0.984 R²)
+mean                 2.527 ms   (2.372 ms .. 3.182 ms)
+std dev              788.0 μs   (301.9 μs .. 1.659 ms)
+variance introduced by outliers: 96% (severely inflated)
+
+benchmarking Intersection (Randomized)/Int.Set:10000
+time                 1.237 ms   (1.202 ms .. 1.266 ms)
+                     0.993 R²   (0.988 R² .. 0.996 R²)
+mean                 1.173 ms   (1.154 ms .. 1.202 ms)
+std dev              78.64 μs   (61.59 μs .. 103.1 μs)
+variance introduced by outliers: 54% (severely inflated)
+
+benchmarking Intersection (Randomized)/Data.HashSet:10000
+time                 564.2 μs   (554.5 μs .. 576.5 μs)
+                     0.995 R²   (0.992 R² .. 0.997 R²)
+mean                 599.0 μs   (587.7 μs .. 613.3 μs)
+std dev              43.45 μs   (36.10 μs .. 52.97 μs)
+variance introduced by outliers: 62% (severely inflated)
+
+benchmarking Intersection (Randomized)/Data.IntSet:10000
+time                 279.1 μs   (271.3 μs .. 290.6 μs)
+                     0.994 R²   (0.990 R² .. 0.998 R²)
+mean                 285.0 μs   (280.3 μs .. 290.0 μs)
+std dev              16.00 μs   (12.66 μs .. 19.90 μs)
+variance introduced by outliers: 53% (severely inflated)
+
+benchmarking Intersection (Randomized)/Data.Set:100000
+time                 27.50 ms   (26.64 ms .. 28.91 ms)
+                     0.994 R²   (0.987 R² .. 0.999 R²)
+mean                 28.01 ms   (27.48 ms .. 29.06 ms)
+std dev              1.636 ms   (874.7 μs .. 2.828 ms)
+variance introduced by outliers: 21% (moderately inflated)
+
+benchmarking Intersection (Randomized)/Int.Set:100000
+time                 13.81 ms   (13.23 ms .. 14.31 ms)
+                     0.992 R²   (0.987 R² .. 0.996 R²)
+mean                 13.14 ms   (12.91 ms .. 13.39 ms)
+std dev              613.8 μs   (507.6 μs .. 780.7 μs)
+variance introduced by outliers: 18% (moderately inflated)
+
+benchmarking Intersection (Randomized)/Data.HashSet:100000
+time                 7.943 ms   (7.673 ms .. 8.173 ms)
+                     0.993 R²   (0.988 R² .. 0.997 R²)
+mean                 8.190 ms   (8.053 ms .. 8.334 ms)
+std dev              395.6 μs   (325.5 μs .. 495.9 μs)
+variance introduced by outliers: 23% (moderately inflated)
+
+benchmarking Intersection (Randomized)/Data.IntSet:100000
+time                 5.908 ms   (5.829 ms .. 5.989 ms)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 6.104 ms   (6.040 ms .. 6.180 ms)
+std dev              207.8 μs   (169.6 μs .. 252.1 μs)
+variance introduced by outliers: 15% (moderately inflated)
+
+benchmarking Intersection (Randomized)/Data.Set:1000000
+time                 284.4 ms   (254.8 ms .. 324.4 ms)
+                     0.994 R²   (0.978 R² .. 1.000 R²)
+mean                 311.8 ms   (299.3 ms .. 323.1 ms)
+std dev              15.72 ms   (12.22 ms .. 17.13 ms)
+variance introduced by outliers: 16% (moderately inflated)
+
+benchmarking Intersection (Randomized)/Int.Set:1000000
+time                 127.4 ms   (125.4 ms .. 129.8 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 126.6 ms   (125.7 ms .. 127.8 ms)
+std dev              1.705 ms   (1.022 ms .. 2.671 ms)
+variance introduced by outliers: 11% (moderately inflated)
+
+benchmarking Intersection (Randomized)/Data.HashSet:1000000
+time                 77.56 ms   (76.48 ms .. 78.51 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 80.27 ms   (79.12 ms .. 83.51 ms)
+std dev              2.901 ms   (986.8 μs .. 4.966 ms)
+
+benchmarking Intersection (Randomized)/Data.IntSet:1000000
+time                 58.00 ms   (57.28 ms .. 58.83 ms)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 57.88 ms   (57.24 ms .. 58.35 ms)
+std dev              980.6 μs   (602.4 μs .. 1.651 ms)
+
+benchmarking Member Int (Randomized)/Data.Set:10
+time                 29.42 ns   (29.01 ns .. 29.84 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 29.33 ns   (28.92 ns .. 29.92 ns)
+std dev              1.551 ns   (1.143 ns .. 2.352 ns)
+variance introduced by outliers: 75% (severely inflated)
+
+benchmarking Member Int (Randomized)/Int.Set:10
+time                 25.35 ns   (25.04 ns .. 25.76 ns)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 25.68 ns   (25.26 ns .. 26.41 ns)
+std dev              1.785 ns   (1.138 ns .. 2.879 ns)
+variance introduced by outliers: 84% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.HashSet:10
+time                 43.85 ns   (43.41 ns .. 44.35 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 43.86 ns   (43.30 ns .. 44.56 ns)
+std dev              2.016 ns   (1.478 ns .. 2.853 ns)
+variance introduced by outliers: 69% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.IntSet:10
+time                 31.18 ns   (30.71 ns .. 31.67 ns)
+                     0.998 R²   (0.998 R² .. 0.999 R²)
+mean                 30.73 ns   (30.37 ns .. 31.27 ns)
+std dev              1.514 ns   (1.132 ns .. 2.288 ns)
+variance introduced by outliers: 72% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.Set:100
+time                 41.52 ns   (41.12 ns .. 41.96 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 42.21 ns   (41.72 ns .. 42.95 ns)
+std dev              2.092 ns   (1.512 ns .. 2.873 ns)
+variance introduced by outliers: 72% (severely inflated)
+
+benchmarking Member Int (Randomized)/Int.Set:100
+time                 33.72 ns   (33.21 ns .. 34.34 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 33.74 ns   (33.39 ns .. 34.28 ns)
+std dev              1.458 ns   (1.052 ns .. 2.400 ns)
+variance introduced by outliers: 66% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.HashSet:100
+time                 48.47 ns   (47.80 ns .. 49.39 ns)
+                     0.997 R²   (0.995 R² .. 0.999 R²)
+mean                 49.69 ns   (48.92 ns .. 50.58 ns)
+std dev              2.849 ns   (2.343 ns .. 3.975 ns)
+variance introduced by outliers: 77% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.IntSet:100
+time                 47.56 ns   (45.71 ns .. 49.62 ns)
+                     0.993 R²   (0.990 R² .. 1.000 R²)
+mean                 46.07 ns   (45.46 ns .. 47.06 ns)
+std dev              2.549 ns   (1.526 ns .. 3.866 ns)
+variance introduced by outliers: 76% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.Set:1000
+time                 53.49 ns   (53.11 ns .. 53.90 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 53.62 ns   (53.20 ns .. 54.20 ns)
+std dev              1.618 ns   (1.250 ns .. 2.207 ns)
+variance introduced by outliers: 48% (moderately inflated)
+
+benchmarking Member Int (Randomized)/Int.Set:1000
+time                 41.50 ns   (41.04 ns .. 41.92 ns)
+                     0.999 R²   (0.999 R² .. 0.999 R²)
+mean                 41.64 ns   (41.12 ns .. 42.25 ns)
+std dev              1.951 ns   (1.556 ns .. 2.489 ns)
+variance introduced by outliers: 69% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.HashSet:1000
+time                 42.31 ns   (40.55 ns .. 45.25 ns)
+                     0.971 R²   (0.934 R² .. 0.999 R²)
+mean                 42.05 ns   (40.99 ns .. 45.91 ns)
+std dev              5.799 ns   (2.147 ns .. 12.56 ns)
+variance introduced by outliers: 95% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.IntSet:1000
+time                 58.72 ns   (57.64 ns .. 60.42 ns)
+                     0.992 R²   (0.979 R² .. 0.999 R²)
+mean                 59.47 ns   (58.23 ns .. 62.65 ns)
+std dev              6.304 ns   (3.340 ns .. 11.39 ns)
+variance introduced by outliers: 92% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.Set:10000
+time                 72.09 ns   (71.39 ns .. 72.89 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 72.52 ns   (71.84 ns .. 73.52 ns)
+std dev              2.782 ns   (1.967 ns .. 4.272 ns)
+variance introduced by outliers: 59% (severely inflated)
+
+benchmarking Member Int (Randomized)/Int.Set:10000
+time                 52.27 ns   (51.78 ns .. 53.02 ns)
+                     0.998 R²   (0.995 R² .. 0.999 R²)
+mean                 53.01 ns   (52.22 ns .. 54.53 ns)
+std dev              3.585 ns   (2.172 ns .. 6.154 ns)
+variance introduced by outliers: 83% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.HashSet:10000
+time                 45.65 ns   (44.15 ns .. 48.08 ns)
+                     0.977 R²   (0.948 R² .. 0.996 R²)
+mean                 48.51 ns   (46.69 ns .. 51.77 ns)
+std dev              8.292 ns   (5.892 ns .. 12.51 ns)
+variance introduced by outliers: 97% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.IntSet:10000
+time                 64.66 ns   (63.85 ns .. 65.35 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 65.94 ns   (64.82 ns .. 67.93 ns)
+std dev              4.925 ns   (3.282 ns .. 7.609 ns)
+variance introduced by outliers: 85% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.Set:100000
+time                 95.08 ns   (93.85 ns .. 96.27 ns)
+                     0.998 R²   (0.998 R² .. 0.999 R²)
+mean                 95.50 ns   (94.47 ns .. 96.69 ns)
+std dev              3.727 ns   (2.895 ns .. 4.709 ns)
+variance introduced by outliers: 60% (severely inflated)
+
+benchmarking Member Int (Randomized)/Int.Set:100000
+time                 66.28 ns   (64.40 ns .. 68.87 ns)
+                     0.995 R²   (0.991 R² .. 0.999 R²)
+mean                 67.28 ns   (66.18 ns .. 68.91 ns)
+std dev              4.390 ns   (3.346 ns .. 5.879 ns)
+variance introduced by outliers: 81% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.HashSet:100000
+time                 59.32 ns   (57.75 ns .. 61.24 ns)
+                     0.980 R²   (0.945 R² .. 0.997 R²)
+mean                 63.03 ns   (60.49 ns .. 69.15 ns)
+std dev              12.79 ns   (6.618 ns .. 23.44 ns)
+variance introduced by outliers: 98% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.IntSet:100000
+time                 73.87 ns   (73.27 ns .. 74.56 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 74.41 ns   (73.84 ns .. 75.21 ns)
+std dev              2.226 ns   (1.738 ns .. 2.985 ns)
+variance introduced by outliers: 46% (moderately inflated)
+
+benchmarking Member Int (Randomized)/Data.Set:1000000
+time                 94.73 ns   (93.77 ns .. 95.81 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 96.82 ns   (95.48 ns .. 98.63 ns)
+std dev              5.352 ns   (3.790 ns .. 7.187 ns)
+variance introduced by outliers: 75% (severely inflated)
+
+benchmarking Member Int (Randomized)/Int.Set:1000000
+time                 68.09 ns   (67.34 ns .. 68.81 ns)
+                     0.999 R²   (0.999 R² .. 0.999 R²)
+mean                 67.97 ns   (67.34 ns .. 68.77 ns)
+std dev              2.338 ns   (1.962 ns .. 2.950 ns)
+variance introduced by outliers: 54% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.HashSet:1000000
+time                 59.84 ns   (59.18 ns .. 60.74 ns)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 60.78 ns   (59.77 ns .. 62.24 ns)
+std dev              4.057 ns   (2.652 ns .. 5.665 ns)
+variance introduced by outliers: 82% (severely inflated)
+
+benchmarking Member Int (Randomized)/Data.IntSet:1000000
+time                 99.44 ns   (98.57 ns .. 100.4 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 99.23 ns   (98.48 ns .. 100.4 ns)
+std dev              2.880 ns   (2.000 ns .. 4.206 ns)
+variance introduced by outliers: 44% (moderately inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.Set:10
+time                 29.70 ns   (29.08 ns .. 30.55 ns)
+                     0.992 R²   (0.980 R² .. 0.999 R²)
+mean                 29.95 ns   (29.38 ns .. 31.34 ns)
+std dev              2.822 ns   (1.483 ns .. 5.227 ns)
+variance introduced by outliers: 91% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Int.Set:10
+time                 25.29 ns   (25.04 ns .. 25.62 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 25.43 ns   (25.21 ns .. 25.73 ns)
+std dev              813.9 ps   (635.5 ps .. 1.066 ns)
+variance introduced by outliers: 52% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.HashSet:10
+time                 43.26 ns   (42.80 ns .. 43.83 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 43.13 ns   (42.81 ns .. 43.59 ns)
+std dev              1.270 ns   (989.9 ps .. 1.631 ns)
+variance introduced by outliers: 47% (moderately inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.IntSet:10
+time                 30.18 ns   (30.01 ns .. 30.37 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 30.16 ns   (29.90 ns .. 30.56 ns)
+std dev              1.060 ns   (730.8 ps .. 1.579 ns)
+variance introduced by outliers: 56% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.BloomFilter:10
+time                 193.9 ns   (190.8 ns .. 199.2 ns)
+                     0.965 R²   (0.912 R² .. 0.994 R²)
+mean                 237.8 ns   (214.0 ns .. 286.0 ns)
+std dev              113.7 ns   (68.38 ns .. 174.1 ns)
+variance introduced by outliers: 100% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.Set:100
+time                 41.56 ns   (41.02 ns .. 42.08 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 41.70 ns   (41.20 ns .. 42.51 ns)
+std dev              2.079 ns   (1.462 ns .. 2.826 ns)
+variance introduced by outliers: 72% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Int.Set:100
+time                 33.59 ns   (33.18 ns .. 33.95 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 33.68 ns   (33.22 ns .. 34.51 ns)
+std dev              1.973 ns   (1.086 ns .. 3.065 ns)
+variance introduced by outliers: 78% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.HashSet:100
+time                 53.68 ns   (50.05 ns .. 59.29 ns)
+                     0.954 R²   (0.900 R² .. 0.997 R²)
+mean                 51.79 ns   (49.88 ns .. 57.43 ns)
+std dev              9.392 ns   (3.656 ns .. 19.17 ns)
+variance introduced by outliers: 97% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.IntSet:100
+time                 48.54 ns   (46.65 ns .. 51.08 ns)
+                     0.991 R²   (0.982 R² .. 0.998 R²)
+mean                 47.65 ns   (46.78 ns .. 49.06 ns)
+std dev              3.714 ns   (2.463 ns .. 5.567 ns)
+variance introduced by outliers: 86% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.BloomFilter:100
+time                 192.8 ns   (190.7 ns .. 195.0 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 197.7 ns   (194.0 ns .. 205.2 ns)
+std dev              16.43 ns   (7.837 ns .. 28.46 ns)
+variance introduced by outliers: 87% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.Set:1000
+time                 51.92 ns   (51.54 ns .. 52.35 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 51.62 ns   (51.28 ns .. 52.04 ns)
+std dev              1.222 ns   (973.6 ps .. 1.511 ns)
+variance introduced by outliers: 36% (moderately inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Int.Set:1000
+time                 39.86 ns   (39.50 ns .. 40.26 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 40.15 ns   (39.65 ns .. 41.23 ns)
+std dev              2.355 ns   (1.360 ns .. 4.255 ns)
+variance introduced by outliers: 78% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.HashSet:1000
+time                 40.35 ns   (39.91 ns .. 40.79 ns)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 40.32 ns   (39.88 ns .. 40.93 ns)
+std dev              1.693 ns   (1.081 ns .. 2.682 ns)
+variance introduced by outliers: 64% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.IntSet:1000
+time                 57.94 ns   (57.15 ns .. 58.69 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 57.32 ns   (56.63 ns .. 58.04 ns)
+std dev              2.336 ns   (2.013 ns .. 2.815 ns)
+variance introduced by outliers: 62% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.BloomFilter:1000
+time                 200.4 ns   (195.0 ns .. 206.3 ns)
+                     0.996 R²   (0.992 R² .. 0.999 R²)
+mean                 196.9 ns   (194.4 ns .. 201.0 ns)
+std dev              10.90 ns   (7.940 ns .. 15.32 ns)
+variance introduced by outliers: 74% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.Set:10000
+time                 78.70 ns   (77.78 ns .. 80.17 ns)
+                     0.998 R²   (0.995 R² .. 0.999 R²)
+mean                 79.32 ns   (78.23 ns .. 80.86 ns)
+std dev              4.183 ns   (3.152 ns .. 5.980 ns)
+variance introduced by outliers: 73% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Int.Set:10000
+time                 52.34 ns   (51.93 ns .. 52.72 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 52.09 ns   (51.72 ns .. 52.73 ns)
+std dev              1.578 ns   (1.105 ns .. 2.460 ns)
+variance introduced by outliers: 48% (moderately inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.HashSet:10000
+time                 43.16 ns   (42.69 ns .. 43.67 ns)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 43.31 ns   (42.82 ns .. 43.94 ns)
+std dev              1.818 ns   (1.363 ns .. 2.448 ns)
+variance introduced by outliers: 64% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.IntSet:10000
+time                 64.02 ns   (63.25 ns .. 65.20 ns)
+                     0.998 R²   (0.994 R² .. 1.000 R²)
+mean                 64.31 ns   (63.54 ns .. 65.77 ns)
+std dev              3.309 ns   (2.027 ns .. 5.176 ns)
+variance introduced by outliers: 73% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.BloomFilter:10000
+time                 196.0 ns   (193.2 ns .. 199.2 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 197.3 ns   (194.7 ns .. 200.6 ns)
+std dev              10.56 ns   (8.090 ns .. 15.56 ns)
+variance introduced by outliers: 72% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.Set:100000
+time                 93.37 ns   (92.13 ns .. 94.88 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 93.10 ns   (91.72 ns .. 95.21 ns)
+std dev              5.478 ns   (3.484 ns .. 8.269 ns)
+variance introduced by outliers: 77% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Int.Set:100000
+time                 64.53 ns   (63.68 ns .. 65.35 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 65.31 ns   (64.22 ns .. 66.93 ns)
+std dev              4.137 ns   (2.837 ns .. 5.902 ns)
+variance introduced by outliers: 80% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.HashSet:100000
+time                 55.90 ns   (55.28 ns .. 56.54 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 55.47 ns   (54.87 ns .. 56.41 ns)
+std dev              2.378 ns   (1.834 ns .. 3.216 ns)
+variance introduced by outliers: 65% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.IntSet:100000
+time                 75.17 ns   (74.65 ns .. 75.78 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 75.32 ns   (74.69 ns .. 76.57 ns)
+std dev              2.868 ns   (2.049 ns .. 4.886 ns)
+variance introduced by outliers: 59% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.BloomFilter:100000
+time                 193.1 ns   (190.0 ns .. 196.9 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 193.8 ns   (191.4 ns .. 197.1 ns)
+std dev              9.596 ns   (7.299 ns .. 12.85 ns)
+variance introduced by outliers: 69% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.Set:1000000
+time                 94.96 ns   (93.23 ns .. 97.06 ns)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 96.02 ns   (94.63 ns .. 98.34 ns)
+std dev              5.785 ns   (4.217 ns .. 8.320 ns)
+variance introduced by outliers: 78% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Int.Set:1000000
+time                 68.07 ns   (67.38 ns .. 68.79 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 68.32 ns   (67.51 ns .. 69.76 ns)
+std dev              3.588 ns   (2.164 ns .. 6.317 ns)
+variance introduced by outliers: 73% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.HashSet:1000000
+time                 59.74 ns   (58.93 ns .. 60.56 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 59.20 ns   (58.71 ns .. 59.98 ns)
+std dev              2.007 ns   (1.470 ns .. 3.225 ns)
+variance introduced by outliers: 53% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.IntSet:1000000
+time                 99.68 ns   (98.90 ns .. 100.6 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 100.8 ns   (99.43 ns .. 102.7 ns)
+std dev              5.493 ns   (3.576 ns .. 8.381 ns)
+variance introduced by outliers: 74% (severely inflated)
+
+benchmarking Member Int (Randomized, false positive rate 0.1)/Data.BloomFilter:1000000
+time                 194.9 ns   (192.6 ns .. 197.5 ns)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 196.3 ns   (193.3 ns .. 202.0 ns)
+std dev              13.71 ns   (8.772 ns .. 21.21 ns)
+variance introduced by outliers: 82% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.Set:10
+time                 211.0 ns   (208.2 ns .. 214.0 ns)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 214.8 ns   (211.1 ns .. 224.0 ns)
+std dev              18.66 ns   (9.848 ns .. 34.10 ns)
+variance introduced by outliers: 87% (severely inflated)
+
+benchmarking Member String (Randomized)/String.Set:10
+time                 218.4 ns   (215.8 ns .. 221.1 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 220.4 ns   (217.2 ns .. 225.4 ns)
+std dev              13.50 ns   (8.462 ns .. 21.66 ns)
+variance introduced by outliers: 77% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.HashSet:10
+time                 321.4 ns   (318.6 ns .. 325.2 ns)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 322.7 ns   (319.2 ns .. 330.6 ns)
+std dev              16.25 ns   (8.402 ns .. 28.70 ns)
+variance introduced by outliers: 69% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.DAWG.Packed:10
+time                 640.1 ns   (632.7 ns .. 647.5 ns)
+                     0.999 R²   (0.999 R² .. 0.999 R²)
+mean                 642.4 ns   (635.9 ns .. 656.2 ns)
+std dev              27.69 ns   (16.85 ns .. 52.61 ns)
+variance introduced by outliers: 60% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.Set:100
+time                 289.2 ns   (285.9 ns .. 293.1 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 292.7 ns   (288.3 ns .. 303.8 ns)
+std dev              23.00 ns   (10.08 ns .. 45.03 ns)
+variance introduced by outliers: 85% (severely inflated)
+
+benchmarking Member String (Randomized)/String.Set:100
+time                 284.0 ns   (280.2 ns .. 288.7 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 286.2 ns   (282.3 ns .. 291.2 ns)
+std dev              14.90 ns   (11.48 ns .. 19.52 ns)
+variance introduced by outliers: 70% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.HashSet:100
+time                 358.5 ns   (355.1 ns .. 361.8 ns)
+                     0.999 R²   (0.999 R² .. 0.999 R²)
+mean                 361.8 ns   (356.8 ns .. 371.4 ns)
+std dev              22.00 ns   (13.73 ns .. 35.72 ns)
+variance introduced by outliers: 76% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.DAWG.Packed:100
+time                 833.1 ns   (822.6 ns .. 845.5 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 835.1 ns   (824.7 ns .. 850.0 ns)
+std dev              40.01 ns   (31.45 ns .. 53.29 ns)
+variance introduced by outliers: 65% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.Set:1000
+time                 327.6 ns   (322.3 ns .. 332.5 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 325.8 ns   (321.9 ns .. 331.4 ns)
+std dev              15.30 ns   (11.58 ns .. 21.18 ns)
+variance introduced by outliers: 66% (severely inflated)
+
+benchmarking Member String (Randomized)/String.Set:1000
+time                 315.5 ns   (311.7 ns .. 319.5 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 318.8 ns   (314.7 ns .. 325.0 ns)
+std dev              17.08 ns   (13.81 ns .. 23.33 ns)
+variance introduced by outliers: 72% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.HashSet:1000
+time                 330.6 ns   (326.0 ns .. 335.5 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 329.4 ns   (325.2 ns .. 336.8 ns)
+std dev              18.18 ns   (12.33 ns .. 28.90 ns)
+variance introduced by outliers: 73% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.DAWG.Packed:1000
+time                 757.9 ns   (750.6 ns .. 764.9 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 762.6 ns   (751.8 ns .. 788.9 ns)
+std dev              52.99 ns   (27.83 ns .. 103.6 ns)
+variance introduced by outliers: 80% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.Set:10000
+ time                 584.9 ns   (568.5 ns .. 602.9 ns)
+                     0.993 R²   (0.989 R² .. 0.996 R²)
+mean                 565.1 ns   (548.3 ns .. 581.2 ns)
+std dev              56.75 ns   (50.41 ns .. 64.06 ns)
+variance introduced by outliers: 90% (severely inflated)
+
+benchmarking Member String (Randomized)/String.Set:10000
+time                 577.0 ns   (545.7 ns .. 610.8 ns)
+                     0.979 R²   (0.974 R² .. 0.987 R²)
+mean                 571.8 ns   (549.9 ns .. 595.0 ns)
+std dev              75.89 ns   (67.02 ns .. 86.18 ns)
+variance introduced by outliers: 94% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.HashSet:10000
+time                 388.4 ns   (376.0 ns .. 401.1 ns)
+                     0.990 R²   (0.984 R² .. 0.994 R²)
+mean                 395.8 ns   (383.0 ns .. 415.3 ns)
+std dev              51.53 ns   (41.11 ns .. 61.35 ns)
+variance introduced by outliers: 94% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.DAWG.Packed:10000
+time                 1.142 μs   (1.036 μs .. 1.233 μs)
+                     0.967 R²   (0.959 R² .. 0.988 R²)
+mean                 1.196 μs   (1.126 μs .. 1.299 μs)
+std dev              286.1 ns   (230.1 ns .. 386.0 ns)
+variance introduced by outliers: 98% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.Set:100000
+time                 625.4 ns   (620.0 ns .. 632.0 ns)
+                     0.999 R²   (0.997 R² .. 0.999 R²)
+mean                 632.9 ns   (623.4 ns .. 650.2 ns)
+std dev              40.10 ns   (23.35 ns .. 73.22 ns)
+variance introduced by outliers: 77% (severely inflated)
+
+benchmarking Member String (Randomized)/String.Set:100000
+time                 623.3 ns   (617.1 ns .. 630.5 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 630.2 ns   (622.9 ns .. 647.1 ns)
+std dev              36.06 ns   (20.84 ns .. 65.04 ns)
+variance introduced by outliers: 73% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.HashSet:100000
+time                 361.5 ns   (357.4 ns .. 366.1 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 363.6 ns   (358.8 ns .. 375.1 ns)
+std dev              23.32 ns   (13.45 ns .. 44.73 ns)
+variance introduced by outliers: 78% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.DAWG.Packed:100000
+time                 741.3 ns   (734.1 ns .. 748.5 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 733.4 ns   (726.9 ns .. 744.9 ns)
+std dev              28.76 ns   (19.44 ns .. 47.92 ns)
+variance introduced by outliers: 55% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.Set:1000000
+time                 795.6 ns   (783.2 ns .. 811.3 ns)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 793.3 ns   (782.7 ns .. 804.7 ns)
+std dev              37.66 ns   (30.78 ns .. 46.37 ns)
+variance introduced by outliers: 64% (severely inflated)
+
+benchmarking Member String (Randomized)/String.Set:1000000
+time                 791.4 ns   (781.3 ns .. 798.7 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 793.4 ns   (782.3 ns .. 809.8 ns)
+std dev              48.44 ns   (32.93 ns .. 74.35 ns)
+variance introduced by outliers: 75% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.HashSet:1000000
+time                 372.3 ns   (368.5 ns .. 376.5 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 377.8 ns   (372.8 ns .. 385.8 ns)
+std dev              20.85 ns   (15.83 ns .. 29.10 ns)
+variance introduced by outliers: 72% (severely inflated)
+
+benchmarking Member String (Randomized)/Data.DAWG.Packed:1000000
+time                 42.73 ns   (41.65 ns .. 43.96 ns)
+                     0.988 R²   (0.975 R² .. 0.998 R²)
+mean                 44.37 ns   (42.44 ns .. 48.71 ns)
+std dev              8.599 ns   (4.280 ns .. 16.87 ns)
+variance introduced by outliers: 98% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.Set:10
+time                 210.2 ns   (206.5 ns .. 216.2 ns)
+                     0.989 R²   (0.971 R² .. 0.999 R²)
+mean                 220.1 ns   (213.3 ns .. 236.9 ns)
+std dev              31.67 ns   (14.41 ns .. 58.66 ns)
+variance introduced by outliers: 95% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/String.Set:10
+time                 208.6 ns   (207.0 ns .. 210.4 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 209.0 ns   (207.4 ns .. 210.9 ns)
+std dev              6.113 ns   (5.012 ns .. 7.917 ns)
+variance introduced by outliers: 43% (moderately inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.HashSet:10
+time                 322.4 ns   (319.1 ns .. 325.1 ns)
+                     0.999 R²   (0.999 R² .. 0.999 R²)
+mean                 322.4 ns   (319.0 ns .. 329.2 ns)
+std dev              16.44 ns   (9.653 ns .. 29.07 ns)
+variance introduced by outliers: 69% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.DAWG.Packed:10
+time                 623.1 ns   (616.6 ns .. 630.2 ns)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 627.4 ns   (619.3 ns .. 646.6 ns)
+std dev              39.65 ns   (21.27 ns .. 68.75 ns)
+variance introduced by outliers: 77% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.BloomFilter:10
+time                 390.1 ns   (386.0 ns .. 395.6 ns)
+                     0.999 R²   (0.998 R² .. 1.000 R²)
+mean                 390.5 ns   (387.0 ns .. 395.6 ns)
+std dev              14.77 ns   (11.29 ns .. 19.54 ns)
+variance introduced by outliers: 55% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.Set:100
+time                 275.5 ns   (274.1 ns .. 276.8 ns)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 275.8 ns   (274.2 ns .. 278.6 ns)
+std dev              6.723 ns   (5.395 ns .. 9.155 ns)
+variance introduced by outliers: 34% (moderately inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/String.Set:100
+time                 279.8 ns   (277.4 ns .. 282.8 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 280.1 ns   (277.4 ns .. 284.1 ns)
+std dev              10.42 ns   (7.734 ns .. 15.54 ns)
+variance introduced by outliers: 55% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.HashSet:100
+time                 346.9 ns   (344.8 ns .. 349.4 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 353.2 ns   (348.7 ns .. 358.7 ns)
+std dev              16.82 ns   (12.46 ns .. 23.38 ns)
+variance introduced by outliers: 66% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.DAWG.Packed:100
+time                 802.2 ns   (793.0 ns .. 812.7 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 799.0 ns   (793.0 ns .. 805.8 ns)
+std dev              22.47 ns   (18.43 ns .. 27.99 ns)
+variance introduced by outliers: 38% (moderately inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.BloomFilter:100
+time                 383.6 ns   (381.0 ns .. 386.2 ns)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 385.3 ns   (383.1 ns .. 387.8 ns)
+std dev              7.823 ns   (6.524 ns .. 9.518 ns)
+variance introduced by outliers: 26% (moderately inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.Set:1000
+time                 315.1 ns   (311.9 ns .. 318.8 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 314.9 ns   (312.6 ns .. 317.9 ns)
+std dev              8.873 ns   (7.004 ns .. 13.00 ns)
+variance introduced by outliers: 41% (moderately inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/String.Set:1000
+time                 309.1 ns   (306.7 ns .. 311.7 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 308.9 ns   (306.7 ns .. 312.3 ns)
+std dev              9.389 ns   (6.732 ns .. 15.49 ns)
+variance introduced by outliers: 44% (moderately inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.HashSet:1000
+time                 326.6 ns   (324.8 ns .. 328.8 ns)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 328.3 ns   (325.7 ns .. 332.6 ns)
+std dev              11.16 ns   (7.026 ns .. 18.25 ns)
+variance introduced by outliers: 50% (moderately inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.DAWG.Packed:1000
+time                 737.9 ns   (731.0 ns .. 744.0 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 737.7 ns   (731.8 ns .. 748.5 ns)
+std dev              25.54 ns   (16.15 ns .. 45.29 ns)
+variance introduced by outliers: 49% (moderately inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.BloomFilter:1000
+time                 383.9 ns   (376.8 ns .. 393.6 ns)
+                     0.997 R²   (0.995 R² .. 1.000 R²)
+mean                 381.3 ns   (377.3 ns .. 386.2 ns)
+std dev              15.58 ns   (11.89 ns .. 21.89 ns)
+variance introduced by outliers: 59% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.Set:10000
+time                 483.0 ns   (479.9 ns .. 486.3 ns)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 484.7 ns   (481.5 ns .. 489.1 ns)
+std dev              12.23 ns   (9.831 ns .. 15.59 ns)
+variance introduced by outliers: 34% (moderately inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/String.Set:10000
+time                 537.9 ns   (511.2 ns .. 569.9 ns)
+                     0.975 R²   (0.944 R² .. 0.997 R²)
+mean                 515.2 ns   (499.1 ns .. 549.6 ns)
+std dev              75.89 ns   (35.96 ns .. 143.8 ns)
+variance introduced by outliers: 95% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.HashSet:10000
+time                 360.2 ns   (354.6 ns .. 368.3 ns)
+                     0.997 R²   (0.994 R² .. 0.999 R²)
+mean                 363.7 ns   (358.5 ns .. 372.3 ns)
+std dev              22.16 ns   (13.45 ns .. 36.72 ns)
+variance introduced by outliers: 76% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.DAWG.Packed:10000
+time                 1.015 μs   (993.2 ns .. 1.035 μs)
+                     0.997 R²   (0.997 R² .. 0.999 R²)
+mean                 998.2 ns   (985.0 ns .. 1.013 μs)
+std dev              44.86 ns   (37.65 ns .. 52.31 ns)
+variance introduced by outliers: 61% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.BloomFilter:10000
+time                 401.9 ns   (394.7 ns .. 413.7 ns)
+                     0.994 R²   (0.992 R² .. 0.996 R²)
+mean                 435.1 ns   (423.3 ns .. 449.3 ns)
+std dev              45.15 ns   (39.38 ns .. 56.20 ns)
+variance introduced by outliers: 90% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.Set:100000
+time                 624.7 ns   (618.1 ns .. 632.2 ns)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 628.5 ns   (619.5 ns .. 644.0 ns)
+std dev              38.00 ns   (27.17 ns .. 55.58 ns)
+variance introduced by outliers: 75% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/String.Set:100000
+time                 618.8 ns   (613.6 ns .. 625.1 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 621.9 ns   (615.9 ns .. 630.5 ns)
+std dev              22.85 ns   (18.90 ns .. 32.31 ns)
+variance introduced by outliers: 52% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.HashSet:100000
+time                 343.2 ns   (339.9 ns .. 347.0 ns)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 347.4 ns   (342.8 ns .. 353.4 ns)
+std dev              17.71 ns   (13.38 ns .. 25.20 ns)
+variance introduced by outliers: 70% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.DAWG.Packed:100000
+time                 718.7 ns   (712.6 ns .. 724.4 ns)
+                     1.000 R²   (0.999 R² .. 1.000 R²)
+mean                 714.5 ns   (710.0 ns .. 718.6 ns)
+std dev              14.10 ns   (12.00 ns .. 17.10 ns)
+variance introduced by outliers: 24% (moderately inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.BloomFilter:100000
+time                 382.0 ns   (376.9 ns .. 389.2 ns)
+                     0.998 R²   (0.997 R² .. 1.000 R²)
+mean                 380.9 ns   (377.2 ns .. 386.1 ns)
+std dev              14.36 ns   (11.66 ns .. 18.88 ns)
+variance introduced by outliers: 55% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.Set:1000000
+time                 935.8 ns   (868.2 ns .. 1.007 μs)
+                     0.966 R²   (0.950 R² .. 0.988 R²)
+mean                 873.7 ns   (838.1 ns .. 947.4 ns)
+std dev              151.4 ns   (102.6 ns .. 226.5 ns)
+variance introduced by outliers: 96% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/String.Set:1000000
+time                 771.8 ns   (764.8 ns .. 781.1 ns)
+                     0.992 R²   (0.978 R² .. 0.999 R²)
+mean                 898.6 ns   (799.0 ns .. 1.252 μs)
+std dev              521.7 ns   (219.2 ns .. 1.047 μs)
+variance introduced by outliers: 100% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.HashSet:1000000
+time                 409.6 ns   (383.6 ns .. 449.7 ns)
+                     0.947 R²   (0.913 R² .. 0.984 R²)
+mean                 473.3 ns   (430.8 ns .. 550.7 ns)
+std dev              190.8 ns   (124.2 ns .. 273.2 ns)
+variance introduced by outliers: 100% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.DAWG.Packed:1000000
+time                 41.31 ns   (39.87 ns .. 42.65 ns)
+                     0.995 R²   (0.992 R² .. 0.998 R²)
+mean                 39.62 ns   (39.09 ns .. 40.27 ns)
+std dev              2.039 ns   (1.478 ns .. 2.939 ns)
+variance introduced by outliers: 73% (severely inflated)
+
+benchmarking Member String (Randomized, false positive rate 0.1)/Data.BloomFilter:1000000
+time                 465.8 ns   (433.0 ns .. 516.0 ns)
+                     0.936 R²   (0.874 R² .. 0.993 R²)
+mean                 464.8 ns   (440.7 ns .. 510.5 ns)
+std dev              110.5 ns   (44.69 ns .. 180.2 ns)
+variance introduced by outliers: 98% (severely inflated)
+
+benchmarking FromList String (Monotonic)/Data.Set:10000
+time                 8.377 ms   (8.079 ms .. 8.705 ms)
+                     0.989 R²   (0.982 R² .. 0.994 R²)
+mean                 10.03 ms   (9.630 ms .. 10.65 ms)
+std dev              1.414 ms   (1.010 ms .. 1.912 ms)
+variance introduced by outliers: 70% (severely inflated)
+
+benchmarking FromList String (Monotonic)/String.Set:10000
+time                 9.043 ms   (8.690 ms .. 9.371 ms)
+                     0.988 R²   (0.978 R² .. 0.994 R²)
+mean                 9.086 ms   (8.857 ms .. 9.393 ms)
+std dev              718.0 μs   (551.4 μs .. 1.056 ms)
+variance introduced by outliers: 44% (moderately inflated)
+
+benchmarking FromList String (Monotonic)/Data.HashSet:10000
+time                 5.898 ms   (5.619 ms .. 6.138 ms)
+                     0.980 R²   (0.954 R² .. 0.993 R²)
+mean                 7.633 ms   (6.949 ms .. 9.033 ms)
+std dev              2.795 ms   (1.391 ms .. 5.370 ms)
+variance introduced by outliers: 97% (severely inflated)
+
+benchmarking FromList String (Monotonic)/Data.DAWG.Packed:10000
+time                 5.366 ms   (5.291 ms .. 5.441 ms)
+                     0.998 R²   (0.996 R² .. 0.999 R²)
+mean                 5.409 ms   (5.352 ms .. 5.496 ms)
+std dev              214.7 μs   (140.0 μs .. 319.1 μs)
+variance introduced by outliers: 19% (moderately inflated)
+
+benchmarking FromList String (Randomized)/Data.Set:10
+time                 1.764 μs   (1.749 μs .. 1.779 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 1.780 μs   (1.759 μs .. 1.852 μs)
+std dev              110.5 ns   (48.05 ns .. 233.9 ns)
+variance introduced by outliers: 74% (severely inflated)
+
+benchmarking FromList String (Randomized)/String.Set:10
+time                 1.690 μs   (1.663 μs .. 1.723 μs)
+                     0.997 R²   (0.995 R² .. 0.999 R²)
+mean                 1.705 μs   (1.684 μs .. 1.737 μs)
+std dev              85.68 ns   (68.53 ns .. 116.0 ns)
+variance introduced by outliers: 65% (severely inflated)
+
+benchmarking FromList String (Randomized)/Data.HashSet:10
+time                 2.847 μs   (2.820 μs .. 2.873 μs)
+                     0.999 R²   (0.999 R² .. 0.999 R²)
+mean                 2.832 μs   (2.807 μs .. 2.864 μs)
+std dev              91.94 ns   (76.02 ns .. 117.6 ns)
+variance introduced by outliers: 42% (moderately inflated)
+
+benchmarking FromList String (Randomized)/Data.DAWG.Packed:10
+time                 81.42 μs   (80.59 μs .. 82.28 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 81.70 μs   (81.09 μs .. 82.49 μs)
+std dev              2.236 μs   (1.805 μs .. 2.991 μs)
+variance introduced by outliers: 25% (moderately inflated)
+
+benchmarking FromList String (Randomized)/Data.Set:100
+time                 37.65 μs   (37.00 μs .. 38.42 μs)
+                     0.998 R²   (0.997 R² .. 0.999 R²)
+mean                 37.83 μs   (37.31 μs .. 38.54 μs)
+std dev              1.983 μs   (1.488 μs .. 2.514 μs)
+variance introduced by outliers: 58% (severely inflated)
+
+benchmarking FromList String (Randomized)/String.Set:100
+time                 36.13 μs   (35.65 μs .. 36.59 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 36.41 μs   (35.94 μs .. 37.55 μs)
+std dev              2.374 μs   (1.268 μs .. 4.632 μs)
+variance introduced by outliers: 69% (severely inflated)
+
+benchmarking FromList String (Randomized)/Data.HashSet:100
+time                 41.30 μs   (41.05 μs .. 41.57 μs)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 41.82 μs   (41.48 μs .. 42.37 μs)
+std dev              1.485 μs   (1.055 μs .. 2.048 μs)
+variance introduced by outliers: 39% (moderately inflated)
+
+benchmarking FromList String (Randomized)/Data.DAWG.Packed:100
+time                 1.207 ms   (1.193 ms .. 1.225 ms)
+                     0.997 R²   (0.993 R² .. 0.999 R²)
+mean                 1.211 ms   (1.199 ms .. 1.233 ms)
+std dev              51.55 μs   (32.49 μs .. 88.23 μs)
+variance introduced by outliers: 31% (moderately inflated)
+
+benchmarking FromList String (Randomized)/Data.Set:1000
+time                 877.7 μs   (870.3 μs .. 887.4 μs)
+                     0.999 R²   (0.998 R² .. 0.999 R²)
+mean                 880.6 μs   (874.3 μs .. 889.7 μs)
+std dev              25.25 μs   (18.48 μs .. 37.29 μs)
+variance introduced by outliers: 18% (moderately inflated)
+
+benchmarking FromList String (Randomized)/String.Set:1000
+time                 901.3 μs   (874.9 μs .. 931.8 μs)
+                     0.995 R²   (0.989 R² .. 0.999 R²)
+mean                 882.4 μs   (873.0 μs .. 896.7 μs)
+std dev              39.34 μs   (28.27 μs .. 60.98 μs)
+variance introduced by outliers: 36% (moderately inflated)
+
+benchmarking FromList String (Randomized)/Data.HashSet:1000
+time                 680.9 μs   (667.9 μs .. 692.4 μs)
+                     0.998 R²   (0.998 R² .. 0.999 R²)
+mean                 671.5 μs   (666.8 μs .. 678.7 μs)
+std dev              20.04 μs   (15.25 μs .. 31.09 μs)
+variance introduced by outliers: 21% (moderately inflated)
+
+benchmarking FromList String (Randomized)/Data.DAWG.Packed:1000
+time                 21.25 ms   (20.97 ms .. 21.57 ms)
+                     0.999 R²   (0.999 R² .. 1.000 R²)
+mean                 21.32 ms   (21.20 ms .. 21.48 ms)
+std dev              321.4 μs   (235.9 μs .. 429.1 μs)
+
+benchmarking FromList String (Randomized)/Data.Set:10000
+time                 23.37 ms   (21.78 ms .. 24.89 ms)
+                     0.982 R²   (0.969 R² .. 0.994 R²)
+mean                 22.20 ms   (21.55 ms .. 22.84 ms)
+std dev              1.504 ms   (1.146 ms .. 2.020 ms)
+variance introduced by outliers: 28% (moderately inflated)
+
+benchmarking FromList String (Randomized)/String.Set:10000
+time                 23.31 ms   (21.88 ms .. 24.58 ms)
+                     0.988 R²   (0.979 R² .. 0.996 R²)
+mean                 23.13 ms   (22.54 ms .. 23.83 ms)
+std dev              1.453 ms   (1.119 ms .. 1.915 ms)
+variance introduced by outliers: 24% (moderately inflated)
+
+benchmarking FromList String (Randomized)/Data.HashSet:10000
+time                 19.92 ms   (18.74 ms .. 20.95 ms)
+                     0.984 R²   (0.968 R² .. 0.994 R²)
+mean                 20.45 ms   (19.91 ms .. 21.31 ms)
+std dev              1.562 ms   (1.098 ms .. 2.093 ms)
+variance introduced by outliers: 32% (moderately inflated)
+
+benchmarking FromList String (Randomized)/Data.DAWG.Packed:10000
+time                 306.2 ms   (299.7 ms .. 311.4 ms)
+                     1.000 R²   (1.000 R² .. 1.000 R²)
+mean                 303.2 ms   (301.1 ms .. 304.8 ms)
+std dev              2.374 ms   (1.663 ms .. 2.882 ms)
+variance introduced by outliers: 16% (moderately inflated)
+
+
