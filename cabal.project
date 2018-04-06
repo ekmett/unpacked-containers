@@ -1,2 +1,5 @@
 packages:
   unpacked-containers.cabal
+
+package unpacked-containers
+  optimization: True

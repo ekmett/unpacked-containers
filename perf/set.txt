@@ -1,3 +1,17 @@
+Benchmark results obtained by running the suite at 
+
+http://github.com/ekmett/sets
+
+which is a fork of
+
+http://github.com/haskell-perf/sets
+
+with this package added.
+
+The results show a 15-50% win for things that unpack
+and a statistically insignificant change for things that don't
+relative to Data.Set.
+
 benchmarking Insert Int (Randomized)/Data.Set:10
 time                 690.0 ns   (678.2 ns .. 702.5 ns)
                      0.997 R²   (0.995 R² .. 0.998 R²)
