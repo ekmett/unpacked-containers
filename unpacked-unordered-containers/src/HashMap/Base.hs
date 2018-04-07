@@ -124,7 +124,7 @@ import Key
 hash :: H.Hashable a => a -> Hash
 hash = fromIntegral . H.hash
 
-data Leaf v = L {-# UNPACK #-} !Key v
+data Leaf v = L !Key v
   deriving (Eq)
 
 instance (NFData Key, NFData v) => NFData (Leaf v) where
@@ -382,7 +382,7 @@ member :: Key -> HashMap a -> Bool
 member k m = case lookup k m of
     Nothing -> False
     Just _  -> True
-{-# INLINE member #-}
+{-# INLINABLE member #-}
 
 -- | /O(log n)/ Return the value to which the specified key is mapped,
 -- or 'Nothing' if this map contains no mapping for the key.
@@ -411,6 +411,7 @@ lookupDefault :: v          -- ^ Default value to return.
 lookupDefault def k t = case lookup k t of
     Just v -> v
     _      -> def
+{-# INLINABLE lookupDefault #-}
 
 -- | /O(log n)/ Return the value to which the specified key is mapped.
 -- Calls 'error' if this map contains no mapping for the key.
@@ -418,6 +419,7 @@ lookupDefault def k t = case lookup k t of
 (!) m k = case lookup k m of
     Just v  -> v
     Nothing -> error "HashMap.Base.(!): key not found"
+{-# INLINABLE (!) #-}
 
 infixl 9 !
 
@@ -474,6 +476,7 @@ insert k0 v0 m0 = go h0 k0 v0 0 m0
     go h k x s t@(Collision hy v)
         | h == hy   = Collision h (updateOrSnocWith const k x v)
         | otherwise = go h k x s $ BitmapIndexed (mask hy s) (A.singleton t)
+{-# INLINABLE insert #-}
 
 -- | In-place update version of insert
 unsafeInsert :: Key -> v -> HashMap v -> HashMap v
@@ -508,6 +511,7 @@ unsafeInsert k0 v0 m0 = runST (go h0 k0 v0 0 m0)
     go h k x s t@(Collision hy v)
         | h == hy   = return $! Collision h (updateOrSnocWith const k x v)
         | otherwise = go h k x s $ BitmapIndexed (mask hy s) (A.singleton t)
+{-# INLINEABLE unsafeInsert #-}
 
 -- | Create a map from two key-value pairs which hashes don't collide.
 two :: Shift -> Hash -> Key -> v -> Hash -> Key -> v -> ST s (HashMap v)
@@ -567,6 +571,7 @@ insertWith f k0 v0 m0 = go h0 k0 v0 0 m0
     go h k x s t@(Collision hy v)
         | h == hy   = Collision h (updateOrSnocWith f k x v)
         | otherwise = go h k x s $ BitmapIndexed (mask hy s) (A.singleton t)
+{-# INLINABLE insertWith #-}
 
 -- | In-place update version of insertWith
 unsafeInsertWith :: forall v. (v -> v -> v) -> Key -> v -> HashMap v -> HashMap v
@@ -600,6 +605,7 @@ unsafeInsertWith f k0 v0 m0 = runST (go h0 k0 v0 0 m0)
     go h k x s t@(Collision hy v)
         | h == hy   = return $! Collision h (updateOrSnocWith f k x v)
         | otherwise = go h k x s $ BitmapIndexed (mask hy s) (A.singleton t)
+{-# INLINABLE unsafeInsertWith #-}
 
 -- | /O(log n)/ Remove the mapping for the specified key from this map
 -- if present.
@@ -654,6 +660,7 @@ delete k0 m0 = go h0 k0 0 m0
                 | otherwise -> Collision h (A.delete v i)
             Nothing -> t
         | otherwise = t
+{-# INLINABLE delete #-}
 
 -- | /O(log n)/ Adjust the value tied to a given key in this map only
 -- if it is present. Otherwise, leave the map alone.
@@ -682,12 +689,14 @@ adjust f k0 m0 = go h0 k0 0 m0
     go h k _ t@(Collision hy v)
         | h == hy   = Collision h (updateWith f k v)
         | otherwise = t
+{-# INLINABLE adjust #-}
 
 -- | /O(log n)/  The expression (@'update' f k map@) updates the value @x@ at @k@,
 -- (if it is in the map). If (f k x) is @'Nothing', the element is deleted.
 -- If it is (@'Just' y), the key k is bound to the new value y.
 update :: (a -> Maybe a) -> Key -> HashMap a -> HashMap a
 update f = alter (>>= f)
+{-# INLINABLE update #-}
 
 
 -- | /O(log n)/  The expression (@'alter' f k map@) alters the value @x@ at @k@, or
@@ -698,6 +707,7 @@ alter f k m =
   case f (lookup k m) of
     Nothing -> delete k m
     Just v  -> insert k v m
+{-# INLINABLE alter #-}
 
 ------------------------------------------------------------------------
 -- * Combine
@@ -706,6 +716,7 @@ alter f k m =
 -- mapping from the first will be the mapping in the result.
 union :: HashMap v -> HashMap v -> HashMap v
 union = unionWith const
+{-# INLINABLE union #-}
 
 -- | /O(n+m)/ The union of two maps.  If a key occurs in both maps,
 -- the provided function (first argument) will be used to compute the
@@ -883,6 +894,7 @@ difference a b = foldlWithKey' go empty a
     go m k v = case lookup k b of
                  Nothing -> insert k v m
                  _       -> m
+{-# INLINABLE difference #-}
 
 -- | /O(n*log m)/ Difference with a combining function. When two equal keys are
 -- encountered, the combining function is applied to the values of these keys.
@@ -894,6 +906,7 @@ differenceWith f a b = foldlWithKey' go empty a
     go m k v = case lookup k b of
                  Nothing -> insert k v m
                  Just w  -> maybe m (\y -> insert k y m) (f v w)
+{-# INLINABLE differenceWith #-}
 
 -- | /O(n*log m)/ Intersection of two maps. Return elements of the first
 -- map for keys existing in the second.
@@ -903,6 +916,7 @@ intersection a b = foldlWithKey' go empty a
     go m k v = case lookup k b of
                  Just _ -> insert k v m
                  _      -> m
+{-# INLINABLE intersection #-}
 
 -- | /O(n+m)/ Intersection of two maps. If a key occurs in both maps
 -- the provided function is used to combine the values from the two
@@ -914,6 +928,7 @@ intersectionWith f a b = foldlWithKey' go empty a
     go m k v = case lookup k b of
                  Just w -> insert k (f v w) m
                  _      -> m
+{-# INLINABLE intersectionWith #-}
 
 -- | /O(n+m)/ Intersection of two maps. If a key occurs in both maps
 -- the provided function is used to combine the values from the two
@@ -925,6 +940,7 @@ intersectionWithKey f a b = foldlWithKey' go empty a
     go m k v = case lookup k b of
                  Just w -> insert k (f k v w) m
                  _      -> m
+{-# INLINABLE intersectionWithKey #-}
 
 ------------------------------------------------------------------------
 -- * Folds
@@ -1153,6 +1169,7 @@ indexOf k0 ary0 = go k0 ary0 0 (A.length ary0)
             (L kx _)
                 | k == kx   -> Just i
                 | otherwise -> go k ary (i+1) n
+{-# INLINEABLE indexOf #-}
 
 updateWith :: (v -> v) -> Key -> A.Array (Leaf v) -> A.Array (Leaf v)
 updateWith f k0 ary0 = go k0 ary0 0 (A.length ary0)
@@ -1162,9 +1179,11 @@ updateWith f k0 ary0 = go k0 ary0 0 (A.length ary0)
         | otherwise = case A.index ary i of
             (L kx y) | k == kx   -> A.update ary i (L k (f y))
                      | otherwise -> go k ary (i+1) n
+{-# INLINABLE updateWith #-}
 
 updateOrSnocWith :: (v -> v -> v) -> Key -> v -> A.Array (Leaf v) -> A.Array (Leaf v)
 updateOrSnocWith f = updateOrSnocWithKey (const f)
+{-# INLINABLE updateOrSnocWith #-}
 
 updateOrSnocWithKey :: (Key -> v -> v -> v) -> Key -> v -> A.Array (Leaf v) -> A.Array (Leaf v)
 updateOrSnocWithKey f k0 v0 ary0 = go k0 v0 ary0 0 (A.length ary0)
@@ -1179,6 +1198,7 @@ updateOrSnocWithKey f k0 v0 ary0 = go k0 v0 ary0 0 (A.length ary0)
         | otherwise = case A.index ary i of
             (L kx y) | k == kx   -> A.update ary i (L k (f k v y))
                      | otherwise -> go k v ary (i+1) n
+{-# INLINABLE updateOrSnocWithKey #-}
 
 updateOrConcatWith :: (v -> v -> v) -> A.Array (Leaf v) -> A.Array (Leaf v) -> A.Array (Leaf v)
 updateOrConcatWith f = updateOrConcatWithKey (const f)

@@ -144,6 +144,7 @@ empty = HashSet H.empty
 -- | /O(1)/ Construct a set with a single element.
 singleton :: Key -> HashSet
 singleton a = HashSet (H.singleton a ())
+{-# INLINEABLE singleton #-}
 
 -- | /O(1)/ Convert to the equivalent 'HashMap'.
 toMap :: HashSet -> HashMap ()
@@ -184,15 +185,18 @@ member :: Key -> HashSet -> Bool
 member a s = case H.lookup a (asMap s) of
                Just _ -> True
                _      -> False
+{-# INLINABLE member #-}
 
 -- | /O(log n)/ Add the specified value to this set.
 insert :: Key -> HashSet -> HashSet
 insert a = HashSet . H.insert a () . asMap
+{-# INLINABLE insert #-}
 
 -- | /O(log n)/ Remove the specified value from this set if
 -- present.
 delete :: Key -> HashSet -> HashSet
 delete a = HashSet . H.delete a . asMap
+{-# INLINABLE delete #-}
 
 -- | /O(n)/ Transform this set by applying a function to every value.
 -- The resulting set may be smaller than the source.
@@ -204,11 +208,13 @@ map f = fromList . List.map f . toList
 -- not existing in the second.
 difference :: HashSet -> HashSet -> HashSet
 difference (HashSet a) (HashSet b) = HashSet (H.difference a b)
+{-# INLINABLE difference #-}
 
 -- | /O(n)/ Intersection of two sets. Return elements present in both
 -- the first set and the second.
 intersection :: HashSet -> HashSet -> HashSet
 intersection (HashSet a) (HashSet b) = HashSet (H.intersection a b)
+{-# INLINABLE intersection #-}
 
 -- | /O(n)/ Reduce this set by applying a binary operator to all
 -- elements, using the given starting value (typically the
