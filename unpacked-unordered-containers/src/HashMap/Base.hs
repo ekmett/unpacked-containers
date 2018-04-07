@@ -382,6 +382,7 @@ member :: Key -> HashMap a -> Bool
 member k m = case lookup k m of
     Nothing -> False
     Just _  -> True
+{-# INLINE member #-}
 
 -- | /O(log n)/ Return the value to which the specified key is mapped,
 -- or 'Nothing' if this map contains no mapping for the key.
@@ -401,6 +402,7 @@ lookup k0 m0 = go h0 k0 0 m0
     go h k _ (Collision hx v)
         | h == hx   = lookupInArray k v
         | otherwise = Nothing
+{-# INLINEABLE lookup #-}
 
 -- | /O(log n)/ Return the value to which the specified key is mapped,
 -- or the default value if this map contains no mapping for the key.
