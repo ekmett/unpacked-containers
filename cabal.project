@@ -1,5 +1,9 @@
 packages:
-  unpacked-containers.cabal
+  unpacked-containers/unpacked-containers.cabal
+  unpacked-unordered-containers/unpacked-unordered-containers.cabal
 
 package unpacked-containers
+  optimization: True
+
+package unpacked-unordered-containers
   optimization: True

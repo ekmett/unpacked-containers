@@ -345,6 +345,7 @@ import Internal.BitUtil (wordSize)
 
 import qualified Set.Internal as Set
 import Set.Internal (Set)
+
 import Key
 
 

@@ -1,0 +1,7 @@
+signature Key where
+
+import Data.Hashable
+
+data Key
+instance Eq Key
+instance Hashable Key
